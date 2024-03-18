@@ -1,0 +1,43 @@
+.navbar-container {
+  background-color: #333; /* Change color as desired */
+  color: #fff; /* Change color as desired */
+  height: 120px;
+  width: 100vw;
+  position: relative;
+  bottom: 15px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Adjust padding as desired */
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  background-image: url("https://i.pinimg.com/originals/b6/cd/e8/b6cde81d1c489b0e20d85a6e06c5f8f9.png");
+  background-size: cover; /* Adjust width as desired */
+}
+
+.menu-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.menu-items li {
+  margin-right: 20px; /* Adjust spacing between menu items */
+}
+
+.menu-items li a {
+  text-decoration: none;
+  color: #fff; /* Change color as desired */
+  font-size: 18px; /* Adjust font size as desired */
+}
+
+.menu-items li a:hover {
+  color: #ffcc00; /* Change color on hover as desired */
+}

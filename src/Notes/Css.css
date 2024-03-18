@@ -1,0 +1,62 @@
+.cssbox{
+  position: absolute;
+  bottom: 80vh;
+  left: 72vh;
+  right: 12vh;
+  border: 2px solid yellow;
+  /* z-index: 1000; */
+  /* margin-left: 100px; */
+  color: beige;
+  width: 58vw;
+  height: 70px;
+  /* margin-left: 200px; */
+}
+.cssnav{
+  display: flex;
+}
+.logo2{
+  background-image: url("https://cdn-icons-png.flaticon.com/512/919/919826.png");
+  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 70px;
+  height: 50px;
+  color: blue;
+  flex: 30%;
+  margin-left: 12px;
+  margin-top: 10px;
+}
+.list{
+  flex: 70%;
+  margin-top: 20px;
+}
+.list i{
+  margin-left: 40px;
+  height: 70px;
+  width: 70px;
+  color: aliceblue;
+}
+.notecontainer{
+  display: flex;
+}
+.deltearea{
+  border: 2px solid pink;
+  margin-left: 5px;
+  height: 310px;
+  width: 250px;
+}
+.deletea{
+  margin-left: 12px;
+  height: 40px;
+  font-size: 20px;
+  background-color: green;
+  color: wheat;
+}
+.texarea textarea{
+  color: black;
+  font-size: 20px;
+}
+.save{
+  position: relative;
+  
+}

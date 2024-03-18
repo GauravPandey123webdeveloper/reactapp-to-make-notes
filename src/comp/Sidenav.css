@@ -1,0 +1,17 @@
+.notes-list{
+  list-style: none;
+  color: wheat;
+  font-size: 40px;
+  margin-top: 15px;
+}
+.notes-list li{
+  margin-top: 25px;
+  margin-left: 15%;
+  list-style: none;
+}
+.notes-list li:hover{
+  background-color: brown;
+  height: 70px;
+  width: 160px;
+  text-align: center;
+}

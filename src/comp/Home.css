@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+}
+.main{
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: wheat;
+  position: relative;
+  bottom: 15px;
+  display: flex;
+  z-index: 100;
+}
+.sidenav{
+  flex: 30%;
+  border: 2px solid red;
+  margin-top: 10px;
+}
+.notes{
+  flex: 70%;
+  border: 2px solid green;
+  margin-top: 10px;
+}

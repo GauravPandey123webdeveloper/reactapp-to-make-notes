@@ -1,0 +1,48 @@
+.pythonbox{
+  position: absolute;
+  bottom: 67vh;
+  left: 60vh;
+  border: 2px solid yellow;
+  z-index: 1000;
+  margin-left: 100px;
+  color: beige;
+  width: 58vw;
+  height: 70px;
+}
+.pythonnav{
+  display: flex;
+}
+.logo5{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2uCcSphIdr4N5W6X5cSl2XF_9Obg99bUethEbviiCAw&s");
+  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 70px;
+  height: 50px;
+  color: blue;
+  flex: 30%;
+  margin-left: 12px;
+  margin-top: 10px;
+}
+.list{
+  flex: 70%;
+  margin-top: 20px;
+}
+.notecontainer{
+  display: flex;
+}
+.deltearea{
+  border: 2px solid pink;
+  margin-left: 5px;
+  height: 310px;
+  width: 250px;
+}
+.deletea{
+  margin-left: 12px;
+  height: 40px;
+  font-size: 20px;
+  background-color: green;
+  color: wheat;
+}
+
+
