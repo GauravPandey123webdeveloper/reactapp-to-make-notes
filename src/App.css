@@ -1,0 +1,84 @@
+.name {
+    font-size: x-large;
+    margin-top: 10px;
+    color: hsl(20, 97%, 54%);
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngtree.com%2Ffree-backgrounds-photos%2Fnote-paper&psig=AOvVaw0I7zMGdDd3Ra17v3sUdsVM&ust=1710854789369000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCPjO7PH0_YQDFQAAAAAdAAAAABAE);
+    background-size: cover; 
+  }
+  
+  .app {
+    max-width: 95%;
+    height: 85vh;
+    margin: 50px auto;
+    background-color: #fff;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHHKqVkwIQJ0rejHKCRxj0sUvzUm83XQCWobar9r5b6fdvjCd2_EGoMrYRGw&s);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); 
+    border-radius: 10px;
+  }
+  
+  .sidebar {
+    padding: 20px;
+    flex: 1; 
+    overflow-y: auto; 
+  }
+  
+  .notes-container {
+    flex: 2; 
+    padding: 20px;
+    border-radius: 20px; 
+  }
+  
+  .note {
+    padding: 10px;
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    border-radius: 10px; 
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    height: 40px; 
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px; 
+    padding: 5px; 
+  }
+  
+  textarea {
+    width: 100%; 
+    height: 150px; 
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical; 
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  .save-button, .delete-button, .download-button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .delete-button {
+    background-color: #f44336;
+  }
+  
+  .download-button {
+    background-color: #0a73a0;
+  }
+  
