@@ -1,15 +1,16 @@
 import React from "react";
-import styles from './NotesNav.module.css'
-
-
-
-export default function NotesNav({ arr, setArr, setObj }) {
+import styles from "./NotesSideNav.module.css";
+export default function NotesSideNav({ arr, setArr, setObj }) {
   function handleDel(i) {
-    setArr(arr.filter((ele, ind) => i !== ind));
+    {
+      setArr(arr.filter((ele, ind) => i !== ind));
+    }
   }
 
   function handleOpen(i) {
+    {
       setObj(arr[i]);
+    }
   }
 
   return (

@@ -1,7 +1,9 @@
-import React from "react";
-import styles from './NotesTitle.module.css'
+import React, { useState } from "react";
+import styles from "./NotesHeading.module.css";
+import {jsPDF} from "jspdf";
 
-export default function NotesTitle({ arr, setArr, obj, setObj }) {
+
+export default function NotesHeading({ arr, setArr, obj, setObj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setArr([...arr, obj]);
@@ -13,21 +15,31 @@ export default function NotesTitle({ arr, setArr, obj, setObj }) {
     setObj({ ...obj, [e.target.id]: e.target.value });
   };
 
+  const genratePDF = (e) => {
+    e.preventDefault();
+    const doc = new jsPDF();
+    doc.text(`${obj.title}`, 4, 5.5);
+    doc.text(`${obj.area}`, 10, 10);
+    doc.save(`${obj.title}.pdf`);
+
+}
+  
   return (
     <>
       <div className={styles.navBar}>
-        <i class="fa-solid fa-bars"></i>
+        {/* <i class="fa-solid fa-bars"></i> */}
         <div className={styles.logo}>
-          <img
+          {/* <img
             width="80"
             height="80"
-            src="https://cdn1.vectorstock.com/i/1000x1000/52/10/top-view-of-notepad-vector-18085210.jpg"
+            src="https://img.icons8.com/plasticine/80/task.png"
             alt="task"
-          />
-          <h3 className={styles.logoText}>Note</h3>
+          /> */}
+          <h3 className={styles.logoText}>NotesMakerApp</h3>
         </div>
 
         <form onSubmit={handleSubmit}>
+        <label htmlFor="title">Title :</label>
           <input
             type="text"
             id="title"
@@ -37,6 +49,7 @@ export default function NotesTitle({ arr, setArr, obj, setObj }) {
             onChange={handleChange}
           />
           <button className={styles.saveBtn}>save</button>
+          <button onClick={genratePDF} className={styles.down}>Download</button>
         </form>
       </div>
     </>
