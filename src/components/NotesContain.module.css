@@ -1,0 +1,18 @@
+.NotesText_MainContainer {
+  border: 1px solid rgb(14, 6, 6);
+  margin-left: 3vh;
+  margin-top: 5vh;
+  width: 130vh;
+  height: 80vh;
+}
+.text {
+  margin-top: 3.5vh;
+  margin-left: 5vh;
+  font-size: 20px;
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+.text::placeholder {
+  color: rgb(60, 51, 158);
+  font-size: 20px;
+}
