@@ -10,10 +10,9 @@ export default function NotesDisplay() {
     const [italic, setItalic] = useState(false);
     const [underline, setUnderline] = useState(false);
     const [centre, setCentre] = useState(false);
-    const [title, setTitle] = useState("");
     const [searchData, setsearchData] = useState("");
 
-    // Load data from localStorage when component mounts
+   
     useEffect(() => {
         const savedNotes = localStorage.getItem("notes");
         if (savedNotes) {
@@ -50,7 +49,6 @@ export default function NotesDisplay() {
 
     function handleView(value) {
         setNotes(value.content);
-       
     }
 
     function handleBold() {
@@ -73,13 +71,13 @@ export default function NotesDisplay() {
         setCentre(!centre);
     }
     function handleSearch() {
-        const search = searchData.toLowerCase(); // Convert search query to lowercase for case-insensitive search
+        const search = searchData.toLowerCase(); 
         const filteredData = data.filter(item => {
-            // Check if the title or content includes the search query
+           
             const titleMatch = item.title.toLowerCase().includes(search);
             return titleMatch;
         });
-        setData(filteredData); // Update the data state with the filtered results
+        setData(filteredData); 
     }
     
 

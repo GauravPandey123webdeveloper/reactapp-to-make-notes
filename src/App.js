@@ -6,7 +6,6 @@ function App() {
     <div>
       <Routes>
         <Route path='/' element={<NotesDisplay/>}/>
-       
       </Routes>
     </div>
   );
