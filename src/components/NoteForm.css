@@ -1,0 +1,25 @@
+textarea{
+    text-align: center;
+    height:20vh;
+    width: 60vw;
+    margin-left: 300px;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 3px ;
+    
+}
+.btn{
+    color: white;
+    font-size: larger;
+    height: 40px;
+    width: 70px;
+    background-color: rgb(39, 76, 210);
+    border-radius: 5px;
+}
+ #title{
+    position: fixed;
+    left: 28%;
+    top: 7%;
+}
+ 
+
+  
