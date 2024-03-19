@@ -1,18 +1,48 @@
-import {Routes,Route} from 'react-router-dom'
-import Home from './components/Home';
-import Notes from './components/Notes';
-import Navbar from './components/Navbar';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import NoteForm from "./components/NoteForm";
+import NoteList from "./components/NoteList";
+import SearchBar from "./components/SearchBar";
 
-function App() {
+const App = () => {
+  const [notes, setNotes] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const storedNotes = JSON.parse(localStorage.getItem("notes"));
+    if (storedNotes) {
+      setNotes(storedNotes);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
+
+  const handleSaveNote = (newNote) => {
+    setNotes([...notes, newNote]);
+  };
+
+  const handleDeleteNote = (index) => {
+    const updatedNotes = [...notes];
+    updatedNotes.splice(index, 1);
+    setNotes(updatedNotes);
+  };
+
+  const filteredNotes = notes.filter(
+    (note) =>
+      note.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      note.content.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <div>
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/notes' element={<Notes/>}/>
-        <Route path='/nav' element={<Navbar/>}/>
-      </Routes>
+    <div className="app">
+      <h1>React Notes Application</h1>
+      <NoteForm onSave={handleSaveNote} />
+      <SearchBar onSearch={setSearchQuery} /> {/* Corrected prop name */}
+      <NoteList notes={filteredNotes} onDelete={handleDeleteNote} />
     </div>
   );
-}
+};
 
 export default App;

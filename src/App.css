@@ -1,0 +1,66 @@
+/* styles.module.css */
+.app {
+  font-family: Arial, sans-serif;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-height: 100%;
+  background-color: rgb(90, 188, 201);
+}
+.cont{
+  height:50vh;
+}
+
+
+input[type='text'],
+textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+ 
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+ content:center;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.note {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.note h3 {
+  margin-top: 0;
+}
+
+.note p {
+  margin-bottom: 0;
+}
+label{
+  color:black;
+  font-size: 25px;
+}
+.btn2{
+margin-left:90%;
+width:10%;
+}
+
+.note-list-container {
+  max-height: 300px; /* Example max height */
+  overflow-y: auto;
+}
+
+.note-item {
+  margin-bottom: 10px;
+}
