@@ -1,0 +1,35 @@
+.one {
+  margin-left: 300px;
+  margin-top: 70px;
+  display: flex;
+  justify-content: right;
+  box-shadow: 10px 6px 20px 0px rgb(248, 241, 241);
+}
+
+body {
+  background: rgb(221, 217, 25);
+  background: -moz-linear-gradient(90deg, rgba(221, 217, 25, 1) 0%, rgba(24, 52, 45, 1) 0%);
+  background: -webkit-linear-gradient(90deg, rgba(221, 217, 25, 1) 0%, rgba(24, 52, 45, 1) 0%);
+  background: linear-gradient(90deg, rgba(221, 217, 25, 1) 0%, rgba(24, 52, 45, 1) 0%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ddd919", endColorstr="#18342d", GradientType=1);
+}
+
+.on {
+  margin: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  .one {
+    width: 200px;
+    height: 200px;
+    margin-left: 100px;
+
+  }
+
+  .two {
+    width: 200px;
+    height: 200px;
+    margin-left: 1330px;
+  }
+
+}
