@@ -177,7 +177,7 @@ const NoteApp = () => {
                                 'print',
                             ],
                             height: '82vh',
-                            width: '67vw'
+                            width: '66vw'
                         }}
                     />
                 </div>
