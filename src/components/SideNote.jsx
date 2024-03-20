@@ -18,7 +18,7 @@ const NoteApp = () => {
             setEditorContent(savedNote);
         }
     }, []);
-    
+
     const editor = useRef(null);
 
     const handleAddNote = () => {
@@ -40,7 +40,6 @@ const NoteApp = () => {
             console.log('Title or content is empty.'); // Log a message if title or content is empty
         }
     };
-
     const handleOpenNote = (index) => {
         const note = filteredNotes[index]; // Get the note from the filteredNotes array
         if (note) {
@@ -53,7 +52,7 @@ const NoteApp = () => {
             setSelectedNoteIndex(null);
         }
     };
-    
+
     const handleSaveNote = () => {
         if (selectedNoteIndex !== null) {
             const updatedNotes = [...notes];
@@ -79,11 +78,13 @@ const NoteApp = () => {
         return note.title.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
+    
+
     return (
         <div className="wrapper">
             <p className="smallscreen">Sorry, your screen is too small for this. Try a tablet or computer! <br/> If your device is big enough, make sure it is in landscape mode!</p>
-            <div className="notes">
-                <ul>
+            <div className={`notes `}>
+                <ul className='navbar' >
                     <li>
                         <div className='head-name'>
                             <ul className='btn'>
@@ -133,6 +134,7 @@ const NoteApp = () => {
                         </div>
                     </li>
                 </ul>
+                
             </div>
             <div className="notes-editor">
                 <div>
@@ -175,7 +177,7 @@ const NoteApp = () => {
                                 'print',
                             ],
                             height: '82vh',
-                            width: '66vw'
+                            width: '67vw'
                         }}
                     />
                 </div>

@@ -91,11 +91,6 @@ h2 {
 
 
 
-#remember {
-    accent-color: #fff;
-}
-
-
 
 .wrapper a {
     color: #efefef;
@@ -178,73 +173,15 @@ h2 {
 .notesList::-webkit-scrollbar {
     display: none;
 }
-.lists{
-    scroll-behavior: smooth;
-    overflow: scroll;
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
-    border-radius: 8px;
-}
-.notesList li{
-    border: 1px solid rgba(213, 213, 213, 0.503);
-    margin: 15px 10px;
-    height: 50px;
-    border-radius: 8px;
-    text-align: left;
-    padding: 12px;
-    transition: 0.2s;
-}
-.notesList li:hover{
-    background-color: #ffffff8a;
-}
-
-
 
 .btn li {
     display: inline;
-
-
-}
-
-
-
-.head {
-    align-items: center;
-    border: 1px solid rgba(143, 143, 143, 0.678);
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
-    width: 18vw;
-    display: block;
-    height: 7vh;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-.head-name {
-    align-items: center;
-    border: 1px solid rgba(143, 143, 143, 0.678);
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
-    width: 18vw;
-    display: block;
-    height: 7vh;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    padding-top: 5px;
-}
-
-.lists {
-    display: flex;
-    border: 1px solid rgba(143, 143, 143, 0.678);
-    display: block;
-    justify-content: left;
-    height: 57vh;
-    width: 18vw;
-    margin-top: 10px;
 }
 
 ul {
     list-style-type: none;
 }
+
 .notesList li button{
     border-radius: 5px;
     border: none;
@@ -276,49 +213,220 @@ ul {
     display: flex;
 }
 
-@media screen and (max-width: 768px) {
-    .wrapper {
-        padding: 10px;
-    }
-
-    .input-field input {
-        font-size: 16px;
-    }
-
-    .btn button {
-        height: 30px;
-        width: 30px;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    .notes {
-        padding: 10px;
-    }
-
-    .notesList li {
-        font-size: 14px;
-    }
-}
-@media only screen and (max-width: 800px) {
-    .notes { display: none; }
+@media only screen and (max-width: 1020px) {
+    /* .notes { display:none ; }
     .notes-editor { display: none; }
     .smallscreen {
-        display: block;
+        display: flex;
         color: rgb(0, 0, 0);
         font-size: small;
-        text-align: center;
     }
     body::before {
         background: none;
+    } */
+    .notesList li button{
+        border-radius: 5px;
+        border: none;
+        font-size: 10px;
+        height: 25px;
+        width: 50px;
+        margin: 0 5px;
+        float: right;
     }
+    .input-field input{
+        padding-top: 1px;
+        border-bottom:2px solid  rgb(99, 99, 99);;
     }
-    @media only screen and (min-width: 801px) {
-        .smallscreen { display: none; }
+    .notesList li button:hover{
+        background: transparent;
+        border: 2px solid white;
     }
+    .input-field button{
+        display: inline;
+        float: right;
+        margin-right: 10px;
+        height: 28px;
+        width: 75px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .input-field button:hover{
+        background: transparent;
+        border: 2px solid white;
+    }
+
+
     .smallscreen { display: none; }
 
+    .navbar{
+        display: none;
+    }
 
+    .sidemenu{
+    display: block;
+    z-index: 2;
+    height: 100%;
+    transition: 0.5s;
+    position: fixed;
+    width: 500px;
+    background-color: #0000005e;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    margin-left: 10px;
+    }
+
+    .sidebar-toggler{
+        color: white;
+        display: flex;
+        float: left;
+    }
+
+    .fas{
+        display: block;
+        float: left;
+        align-items: center;
+        cursor: pointer;
+        float: right;
+    }
+
+    .editor{
+        background-color: #5a5a5a;
+    }
+
+    .editor-box{
+        float: left;
+    }
+
+    .notes{
+        width: 100px;
+    }
+
+    .lists{
+        width: 280px;
+        background-color: rgb(179, 179, 179);
+    }
+
+    .head{
+        background-color: rgb(179, 179, 179);
+        width: 280px;
+    }
+
+    .head-name{
+        width: 280px;
+        border: none;
+        background-color: rgb(179, 179, 179);
+    }
+
+    .lists {
+        display: flex;
+        display: block;
+        justify-content: left;
+        height: 57vh;
+        width: 280px;
+        margin-top: 10px;
+    }
+
+    .notesList li{
+        border-bottom: 1px solid rgb(113, 113, 113);
+        margin: 15px 10px;
+        height: 50px;
+        text-align: left;
+        padding: 12px;
+        transition: 0.2s;
+    }
+
+    .lists{
+        scroll-behavior: smooth;
+        overflow: scroll;
+    }
+
+    .notesList li:hover{
+        background-color: #ffffff8a;
+    }
+
+    hr{
+        background-color: rgb(179, 179, 179);
+        color: rgb(179, 179, 179);
+        
+    }
+
+    }
+    @media only screen and (min-width: 1021px) {
+        .smallscreen { display: none; }
+
+        .smallscreen { display: none; }
+
+        .head {
+            align-items: center;
+            border: 1px solid rgba(143, 143, 143, 0.678);
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(50px);
+            width: 18vw;
+            display: block;
+            height: 7vh;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .lists {
+            display: flex;
+            border: 1px solid rgba(143, 143, 143, 0.678);
+            display: block;
+            justify-content: left;
+            height: 57vh;
+            width: 18vw;
+            margin-top: 10px;
+        }
+
+        .head-name {
+            align-items: center;
+            border: 1px solid rgba(143, 143, 143, 0.678);
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(50px);
+            width: 18vw;
+            display: block;
+            height: 7vh;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            padding-top: 5px;
+        }
+
+    .sidebar-toggler{
+        color: white;
+        display: none;
+    }
+
+    .notesList li{
+        border: 1px solid rgba(213, 213, 213, 0.503);
+        margin: 15px 10px;
+        height: 50px;
+        border-radius: 8px;
+        text-align: left;
+        padding: 12px;
+        transition: 0.2s;
+    }
+
+    .notesList li:hover{
+        background-color: #ffffff8a;
+    }
+    .lists{
+        scroll-behavior: smooth;
+        overflow: scroll;
+        backdrop-filter: blur(50px);
+        -webkit-backdrop-filter: blur(50px);
+        border-radius: 8px;
+    }
     
+    .sidemenu{
+        display: none;
+    }
+    
+    .fas{
+        display: none;
+    }
+    
+    }
+    .btnn{
+        float: right;
+    }
