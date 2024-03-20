@@ -51,7 +51,7 @@ export default function Navbar({ note, setNote, arrNotes, setArrNotes }) {
             setUpdate({ state: false, index: update.index })
         }
         else {
-            warning("Enter the Title")
+            warning("First you need to give title")
         }
         // setAdd(false);
     }
@@ -102,12 +102,12 @@ export default function Navbar({ note, setNote, arrNotes, setArrNotes }) {
         e.preventDefault()
         if (note.title !== "") {
             arrNotes[update.index] = note;
-            success("Note's Updated")
+            success("Note's successfully changed")
             // setNote({title:"",text:""})
             // setUpdate({state:false,index:update.index})
         }
         else {
-            warning("Enter the Title")
+            warning("Give the Title ")
         }
         // setArrNotes(arrNotes)
     }
@@ -133,7 +133,7 @@ export default function Navbar({ note, setNote, arrNotes, setArrNotes }) {
                 />
             </div>
             <div className={styles.Navbox}>
-                <div className={styles.addNotes}>Add Notes <button className={styles.addNotesBtn} onClick={handleaddInput}><i class="fa-solid fa-plus"></i></button><button className={styles.searchBtn} onClick={handleSearchInput}><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div className={styles.addNotes}> Notes <button className={styles.addNotesBtn} onClick={handleaddInput}>add</button><button className={styles.searchBtn} onClick={handleSearchInput}>Search</button>
                     {add && (
                         <div className={styles.inputBox}>
                             <form >
@@ -146,15 +146,15 @@ export default function Navbar({ note, setNote, arrNotes, setArrNotes }) {
                         <div className={styles.inputBox}>
                             <form >
                                 <input type="text" placeholder=' Search' onChange={handleSearchChange} className={styles.search} value={searchInp} id='title' />
-                                <button onClick={handleSearch} ><i class="fa-solid fa-magnifying-glass"></i></button>
-                                <button onClick={handleCancel} ><i class="fa-solid fa-xmark"></i></button>
+                                <button onClick={handleSearch} ></button>
+                                <button onClick={handleCancel} ></button>
                             </form>
                         </div>
                     )}
                 </div>
                 <div className={styles.space}></div>
                 <div className={styles.titlesBox}>
-                    {arrNotes.map((element, index) => <div><button onClick={() => handleDisplay(index)} className={styles.titleBtn} id={`${index}`}>{element.title}</button> <button className={styles.deleteBtn} onClick={() => handleDelete(index)}><i class="fa-solid fa-trash"></i></button></div>)}
+                    {arrNotes.map((element, index) => <div><button onClick={() => handleDisplay(index)} className={styles.titleBtn} id={`${index}`}>{element.title}</button> <button className={styles.deleteBtn} onClick={() => handleDelete(index)}></button></div>)}
                 </div>
             </div>
             {update.state && (
