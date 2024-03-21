@@ -399,9 +399,9 @@ ul {
             border: 1px solid rgba(143, 143, 143, 0.678);
             display: block;
             justify-content: left;
-            height: 78vh;
+            height: 57vh;
             width: 18vw;
-            margin-top: 10px;
+            margin-top: 15px;
             backdrop-filter: blur(50px);
             -webkit-backdrop-filter: blur(50px);
         }
@@ -460,11 +460,7 @@ ul {
     .btnn{
         float: right;
     }
-    @media only screen and (max-height: 1020px){
-        .lists{
-            height: 57vh;
-        }
-    }
+   
     .editor-box{
         text-align: initial;
     }
