@@ -279,11 +279,9 @@ ul {
     height: 100%;
     transition: 0.5s;
     position: fixed;
-    width: 500px;
+    width: 600px;
     background: url("https://img.freepik.com/premium-photo/smart-mobile-phone-social-networks-connect-global-network-network-touch-screen-device-digital-links-data-information-online-internet-things_1417-25064.jpg?size=626&ext=jpg&ga=GA1.1.665338535.1710153915&semt=ais"), #000;
     background-position:left;
-    backdrop-filter: blur(100px);
-    -webkit-backdrop-filter: blur(100px);
     margin-left: 10px;
     }
 

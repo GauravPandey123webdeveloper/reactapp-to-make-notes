@@ -8,6 +8,7 @@ const NoteApp = () => {
     const [selectedNoteIndex, setSelectedNoteIndex] = useState(null);
     const [editorContent, setEditorContent] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
+    const [showNewNoteButton, setShowNewNoteButton] = useState(true);
 
     useEffect(() => {
         const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
@@ -101,7 +102,23 @@ const NoteApp = () => {
                                     placeholder='Enter title here...'
                                     onChange={(e) => setCurrentTitle(e.target.value)}
                                 />
-                                <button onClick={handleAddNote}>Save</button>
+                                {showNewNoteButton ? (
+                                    <button onClick={() => {
+                                        setCurrentTitle('');
+                                        setEditorContent('');
+                                        setSelectedNoteIndex(null);
+                                        setShowNewNoteButton(false);
+                                    }}>New Note</button>
+                                ) : (<button onClick={() => {
+                                    handleAddNote();
+                                    setShowNewNoteButton(true); // Hide "New Note" button
+                                }}>Save</button>)}
+                                {/* <button onClick={handleAddNote}>Save</button>
+                                <button onClick={() => {
+                                    setCurrentTitle('');
+                                    setEditorContent('');
+                                    setSelectedNoteIndex(null);
+                                }}>New Note</button> */}
                             </div>
                             <br />
                         </div>
