@@ -89,9 +89,6 @@ h2 {
     transform: translateY(-120%);
 }
 
-
-
-
 .wrapper a {
     color: #efefef;
     text-decoration: none;
@@ -190,10 +187,12 @@ ul {
     width: 50px;
     margin: 0 5px;
     float: right;
+    background-color: white;
 }
 .notesList li button:hover{
     background: transparent;
     border: 2px solid white;
+    color: white;
 }
 .input-field button{
     display: inline;
@@ -203,11 +202,12 @@ ul {
     width: 75px;
     border: none;
     border-radius: 5px;
-    
+    background-color: white;
 }
 .input-field button:hover{
     background: transparent;
     border: 2px solid white;
+    color: white;
 }
 .input-field{
     display: flex;
@@ -224,9 +224,6 @@ ul {
     body::before {
         background: none;
     } */
-    h2{
-        color: black;
-    }
     .notesList li button{
         border-radius: 5px;
         border: none;
@@ -235,15 +232,17 @@ ul {
         width: 50px;
         margin: 0 5px;
         float: right;
+        background-color: white;
     }
     .input-field input{
         padding-top: 1px;
         border-bottom:2px solid  rgb(99, 99, 99);
-        color: #000;
+        
     }
     .notesList li button:hover{
         background: transparent;
-        border: 2px solid rgb(0, 0, 0);
+        border: 2px solid rgb(255, 255, 255);
+        color: white;
     }
     .input-field button{
         display: inline;
@@ -253,11 +252,12 @@ ul {
         width: 75px;
         border: none;
         border-radius: 5px;
+        background-color: white;
     }
 
     .input-field button:hover{
-        background: transparent;
-        border: 2px solid rgb(0, 0, 0);
+        border: 2px solid rgb(255, 255, 255);
+        color: white;
     }
 
 
@@ -266,7 +266,13 @@ ul {
     .navbar{
         display: none;
     }
-
+    .head{
+        border: 0.5px solid rgba(255, 255, 255, 0.482);
+        margin-top: 10px;
+        border-radius: 8px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
     .sidemenu{
     display: block;
     z-index: 2;
@@ -274,9 +280,11 @@ ul {
     transition: 0.5s;
     position: fixed;
     width: 500px;
-    background-color: #0000005e;
-    backdrop-filter: blur(0px);
-    -webkit-backdrop-filter: blur(0px);
+    background: url("https://img.freepik.com/premium-photo/smart-mobile-phone-social-networks-connect-global-network-network-touch-screen-device-digital-links-data-information-online-internet-things_1417-25064.jpg?size=626&ext=jpg&ga=GA1.1.665338535.1710153915&semt=ais"), #000;
+    background-position:center;
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    background-size: cover;
     margin-left: 10px;
     }
 
@@ -299,10 +307,16 @@ ul {
         float: left;
     }
 
+    .notesList{
+        
+        border-radius: 8px;
+        position:relative;
+    }
     .notes{
         width: 10px;
         margin-right: 10px;
         position: relative;
+        
 
     }
     .open{
@@ -320,28 +334,37 @@ ul {
 
     .head-name{
         width: 280px;
+        height: 50px;
         border: none;
-        
+        backdrop-filter: blur(100px);
+        -webkit-backdrop-filter: blur(100px);
+        border-radius: 8px;
+        margin-bottom: 10px;
+        border: 1px solid rgba(179, 179, 179, 0.396);
     }
 
     .lists {
-        display: flex;
+        
         display: block;
         justify-content: left;
-        height: 57vh;
-        width: 280px;
+        height: 54vh;
+        width: 279px;
         margin-top: 10px;
-        background-color: rgba(233, 233, 233, 0.623);
-        border-radius: 0 0  8px 8px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: white;
+        border-radius: 8px;
     }
 
     .notesList li{
-        border-bottom: 1px solid rgb(113, 113, 113);
+        border: 0.5px solid rgb(165, 165, 165);
+        border-radius: 5px;
         margin: 15px 10px;
         height: 50px;
         text-align: left;
         padding: 12px;
         transition: 0.2s;
+        
     }
 
     .lists{
@@ -385,6 +408,8 @@ ul {
             height: 57vh;
             width: 18vw;
             margin-top: 10px;
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(50px);
         }
 
         .head-name {
@@ -432,6 +457,9 @@ ul {
     
     .fas{
         display: none;
+    }
+    .notesList{
+        color: white;
     }
     
     }

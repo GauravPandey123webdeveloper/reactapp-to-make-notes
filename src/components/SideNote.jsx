@@ -19,13 +19,13 @@ const NoteApp = () => {
         }
     }, []);
 
-    
+
     const editor = useRef(null);
 
     const handleAddNote = () => {
         console.log('Editor Content:', editor.current.value); // Log editor content to check if it's being received
         console.log('Current Title:', currentTitle); // Log current title to verify
-        
+
         if (currentTitle.trim() !== '' && editor.current.value.trim() !== '') {
             const newNote = { title: currentTitle, content: editor.current.value };
             console.log('New Note:', newNote); // Log the new note to check its content
@@ -79,11 +79,11 @@ const NoteApp = () => {
         return note.title.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
-    
+
 
     return (
         <div className="wrapper">
-            <p className="smallscreen">Sorry, your screen is too small for this. Try a tablet or computer! <br/> If your device is big enough, make sure it is in landscape mode!</p>
+            <p className="smallscreen">Sorry, your screen is too small for this. Try a tablet or computer! <br /> If your device is big enough, make sure it is in landscape mode!</p>
             <div className={`notes `}>
                 <ul className='navbar' >
                     <li>
@@ -125,17 +125,17 @@ const NoteApp = () => {
                                 {filteredNotes.map((note, index) => (
                                     <li key={index} onClick={() => handleOpenNote(index)}>
                                         {note.title}
-                                        {selectedNoteIndex !== null && (
+                                        {selectedNoteIndex === index ? (
                                             <button onClick={handleSaveNote}>Update</button>
+                                        ) : (
+                                            <button onClick={() => handleDeleteNote(index)}>Delete</button>
                                         )}
-                                        <button onClick={() => handleDeleteNote(index)}>Delete</button>
                                     </li>
                                 ))}
                             </ul>
                         </div>
                     </li>
                 </ul>
-                
             </div>
             <div className="notes-editor">
                 <div>
@@ -184,15 +184,15 @@ const NoteApp = () => {
                                 'preview',
                                 'save',
                                 ''
-                                
+
                             ],
                             height: '82vh',
                             width: '66vw',
                             uploader: { insertImageAsBase64URI: true },
                             readonly: false,
                             toolbarAdaptive: false,
-                            
-                            
+
+
                         }}
                     />
                 </div>

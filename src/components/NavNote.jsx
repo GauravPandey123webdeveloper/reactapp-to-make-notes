@@ -25,7 +25,7 @@ const NoteApp = () => {
     const handleAddNote = () => {
         console.log('Editor Content:', editor.current.value); // Log editor content to check if it's being received
         console.log('Current Title:', currentTitle); // Log current title to verify
-        
+
         if (currentTitle.trim() !== '' && editor.current.value.trim() !== '') {
             const newNote = { title: currentTitle, content: editor.current.value };
             console.log('New Note:', newNote); // Log the new note to check its content
@@ -85,79 +85,79 @@ const NoteApp = () => {
 
     return (
         <div className="wrapper">
-            <p className="smallscreen">Sorry, your screen is too small for this. Try a tablet or computer! <br/> If your device is big enough, make sure it is in landscape mode!</p>
+            <p className="smallscreen">Sorry, your screen is too small for this. Try a tablet or computer! <br /> If your device is big enough, make sure it is in landscape mode!</p>
             <div className={`notes ${isSidebarOpen ? '' : 'open'}`}>
-                
+
                 <i className={`fas ${isSidebarOpen ? 'fa-bars' : 'fa-times'} sidebar-toggler`} onClick={toggleSidebar}></i>
                 {!isSidebarOpen && <div className="notes-placeholder">
-                <ul className='sidemenu' id="sidemenu" style={{
-    position: 'fixed',
-    top: 30,
-    width: '280px',
-    height: '91%',
-    backdropFilter: 'blur(1000px)',
-    WebkitBackdropFilter: 'blur(1000px)',
-    backgroundColor: 'rgba(2, 2, 2, 0.323)',
-    transition: 'right 0.3s ease-in-out',
-    border: '1px solid rgba(0, 0, 0, 0.2)',
-    borderRadius: '8px'
-}}>
-                    <li>
-                        
-                        <div className='head-name'>
-                            <ul className='btn'>
-                                <h2>Notes</h2>
-                            </ul>
-                            <hr />
-                            
-                        </div>
-                        <div className='head'>
-                            <div className='input-field'>
-                                <input
-                                    type="text"
-                                    value={currentTitle}
-                                    placeholder='Enter title here...'
-                                    onChange={(e) => setCurrentTitle(e.target.value)}
-                                />
-                                <button onClick={handleAddNote}>Save</button>
+                    <ul className='sidemenu' id="sidemenu" style={{
+                        position: 'fixed',
+                        top: 30,
+                        width: '280px',
+                        height: '91%',
+                        backdropFilter: 'blur(1000px)',
+                        WebkitBackdropFilter: 'blur(1000px)',
+                        backgroundColor: 'rgba(2, 2, 2, 0.323)',
+                        transition: 'right 0.3s ease-in-out',
+                        border: '1px solid rgba(0, 0, 0, 0.2)',
+                        borderRadius: '8px'
+                    }}>
+                        <li>
+
+                            <div className='head-name'>
+                                <ul className='btn'>
+                                    <h2>Notes</h2>
+                                </ul>
+
                             </div>
-                            <hr />
-                            
-                            
-                        </div>
-                        <div className='head'>
-                            <div className='input-field'>
-                                <div>
+                            <div className='head'>
+                                <div className='input-field'>
                                     <input
                                         type="text"
-                                        value={searchQuery}
-                                        placeholder="Search Note..."
-                                        onChange={handleSearchQueryChange}
+                                        value={currentTitle}
+                                        placeholder='Enter title here...'
+                                        onChange={(e) => setCurrentTitle(e.target.value)}
                                     />
+                                    <button onClick={handleAddNote}>Save</button>
                                 </div>
-                            </div>
-                            <hr />
-                            
-                        </div>
-                    </li>
-                    <li>
-                        <div className='lists'>
-                            <ul className='notesList'>
-                                {filteredNotes.map((note, index) => (
-                                    <li key={index} onClick={() => handleOpenNote(index)}>
-                                        {note.title}
-                                        {selectedNoteIndex !== null && (
-                                            <button onClick={handleSaveNote}>Update</button>
-                                        )}
-                                        <button onClick={() => handleDeleteNote(index)}>Delete</button>
-                                    </li>
-                                    
-                                ))}
                                 
-                            </ul>
-                        </div>
-                    </li>
-                </ul> </div>}
+
+
+                            </div>
+                            <div className='head'>
+                                <div className='input-field'>
+                                    <div>
+                                        <input
+                                            type="text"
+                                            value={searchQuery}
+                                            placeholder="Search Note..."
+                                            onChange={handleSearchQueryChange}
+                                        />
+                                    </div>
+                                </div>
+                            
+
+                            </div>
+                        </li>
+                        <li>
+                            <div className='lists'>
+                                <ul className='notesList'>
+                                    {filteredNotes.map((note, index) => (
+                                        <li key={index} onClick={() => handleOpenNote(index)}>
+                                            {note.title}
+                                            {selectedNoteIndex === index ? (
+                                                <button onClick={handleSaveNote}>Update</button>
+                                            ) : (
+                                                <button onClick={() => handleDeleteNote(index)}>Delete</button>
+                                            )}
+                                        </li>
+
+                                    ))}
+
+                                </ul>
+                            </div>
+                        </li>
+                    </ul> </div>}
             </div>
             <div className="notes-editor">
                 <div>
@@ -206,12 +206,12 @@ const NoteApp = () => {
                                 'preview',
                                 'save',
                                 ''
-                                
+
                             ],
                             height: '82vh',
                             width: '74vw',
                             uploader: { insertImageAsBase64URI: true },
-                            
+
                             readonly: false,
                             toolbarAdaptive: true,
                         }}
