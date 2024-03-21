@@ -201,11 +201,17 @@ const NoteApp = () => {
                                 'save',
                                 ''
                             ],
+                            style: {
+                                padding: "20px",
+                            },
                             height: '82vh',
                             width: '66vw',
                             uploader: { insertImageAsBase64URI: true },
                             readonly: false,
                             toolbarAdaptive: false,
+                            defaultOptions: {
+                                textAlign: 'left'
+                            },
                         }}
                     />
                 </div>

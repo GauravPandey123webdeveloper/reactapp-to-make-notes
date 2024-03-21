@@ -216,8 +216,10 @@ const NoteApp = () => {
                                 'find',
                                 'preview',
                                 'save',
-                                ''
                             ],
+                            style: {
+                                paddingLeft: "20px",
+                            },
                             height: '82vh',
                             width: '74vw',
                             uploader: { insertImageAsBase64URI: true },

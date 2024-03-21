@@ -1,0 +1,20 @@
+/* .textarea{
+    display: none;
+}
+
+#myjoditEditor, #mySecondJoditEditor
+{
+    .jodit-wysiwyg {
+        padding-left: 10px;
+    }
+    ul {
+        list-style: inside;
+    }
+    ol {
+        list-style: inside;
+        list-style-type: number;
+    }
+    td {
+        border: solid 1px;
+    }
+} */

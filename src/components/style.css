@@ -465,3 +465,6 @@ ul {
             height: 49vh;
         }
     }
+    .editor-box{
+        text-align: initial;
+    }
