@@ -281,7 +281,6 @@ ul {
     height: 100%;
     transition: 0.5s;
     position: fixed;
-    width: 600px;
     background: url("https://img.freepik.com/premium-photo/smart-mobile-phone-social-networks-connect-global-network-network-touch-screen-device-digital-links-data-information-online-internet-things_1417-25064.jpg?size=626&ext=jpg&ga=GA1.1.665338535.1710153915&semt=ais"), #000;
     background-position:left;
     margin-left: 10px;
@@ -321,19 +320,18 @@ ul {
     .open{
         width: 10px;
     }
-
-    .lists{
-        width: 280px;
-    }
-
     .head{
-        width: 280px;
+        width: 250px;
+        margin-left: 15px;
 
     }
 
     .head-name{
-        width: 280px;
-        height: 50px;
+        width: 250px;
+        height: 60px;
+        padding-top: 5px;
+        margin-top: 10px;
+        margin-left: 15px;
         border: none;
         backdrop-filter: blur(100px);
         -webkit-backdrop-filter: blur(100px);
@@ -343,18 +341,17 @@ ul {
     }
 
     .lists {
-        
         display: block;
         justify-content: left;
-        height: 54vh;
-        width: 280px;
+        height: 53vh;
+        width: 250px;
         margin-top: 10px;
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         color: white;
         border-radius: 8px;
         border: 0.5px solid rgba(255, 255, 255, 0.577);
-        margin-left: -1px;
+        margin-left: 15px;
     }
 
     .notesList li{
@@ -386,9 +383,6 @@ ul {
     }
     @media only screen and (min-width: 1021px) {
         .smallscreen { display: none; }
-
-        .smallscreen { display: none; }
-
         .head {
             align-items: center;
             border: 1px solid rgba(143, 143, 143, 0.678);

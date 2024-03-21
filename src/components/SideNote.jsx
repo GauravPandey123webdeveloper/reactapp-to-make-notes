@@ -54,7 +54,6 @@ const NoteApp = () => {
             setSelectedNoteIndex(null);
         }
     };
-
     const handleSaveNote = () => {
         if (selectedNoteIndex !== null) {
             const updatedNotes = [...notes];
@@ -201,15 +200,12 @@ const NoteApp = () => {
                                 'preview',
                                 'save',
                                 ''
-
                             ],
                             height: '82vh',
                             width: '66vw',
                             uploader: { insertImageAsBase64URI: true },
                             readonly: false,
                             toolbarAdaptive: false,
-
-
                         }}
                     />
                 </div>

@@ -215,12 +215,10 @@ const NoteApp = () => {
                                 'preview',
                                 'save',
                                 ''
-
                             ],
                             height: '82vh',
                             width: '74vw',
                             uploader: { insertImageAsBase64URI: true },
-
                             readonly: false,
                             toolbarAdaptive: true,
                         }}
