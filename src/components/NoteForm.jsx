@@ -6,9 +6,15 @@ const NoteForm = ({ onSave }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave({ title, content });
+    if(title===""){
+      alert('please add title')
+    }
+    else{
+      onSave({ title, content });
     setTitle('');
     setContent('');
+    }
+    
   };
 
   return (
