@@ -86,10 +86,9 @@ const NoteApp = () => {
 
     return (
         <div className="wrapper">
+            <i className={`fas ${isSidebarOpen ? 'fa-bars' : 'fa-times'} sidebar-toggler`} onClick={toggleSidebar}></i>
             <p className="smallscreen">Sorry, your screen is too small for this. Try a tablet or computer! <br /> If your device is big enough, make sure it is in landscape mode!</p>
             <div className={`notes ${isSidebarOpen ? '' : 'open'}`}>
-
-                <i className={`fas ${isSidebarOpen ? 'fa-bars' : 'fa-times'} sidebar-toggler`} onClick={toggleSidebar}></i>
                 {!isSidebarOpen && <div className="notes-placeholder">
                     <ul className='sidemenu' id="sidemenu" style={{
                         position: 'fixed',
@@ -167,8 +166,11 @@ const NoteApp = () => {
                             </div>
                         </li>
                     </ul> </div>}
+                    
             </div>
+            
             <div className="notes-editor">
+                
                 <div>
                     <JoditEditor
                         value={editorContent}

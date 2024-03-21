@@ -289,7 +289,7 @@ ul {
     .sidebar-toggler{
         color: white;
         display: flex;
-        
+        animation: ease-in-out;
     }
 
     .fas{
@@ -312,7 +312,7 @@ ul {
     }
     .notes{
         width: 10px;
-        margin-right: 10px;
+        margin-right: 20px;
         position: relative;
         
 
@@ -323,7 +323,6 @@ ul {
     .head{
         width: 250px;
         margin-left: 15px;
-
     }
 
     .head-name{
@@ -460,4 +459,9 @@ ul {
     }
     .btnn{
         float: right;
+    }
+    @media only screen and (max-height: 1020px){
+        .lists{
+            height: 49vh;
+        }
     }
