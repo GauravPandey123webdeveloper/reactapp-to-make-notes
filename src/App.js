@@ -1,18 +1,10 @@
-import {Routes,Route} from 'react-router-dom'
-import Home from './components/Home';
-import Notes from './components/Notes';
-import Navbar from './components/Navbar';
+import React from 'react'
+import Displaynotes from './components/Displaynotes'
 
-function App() {
+export default function App() {
   return (
     <div>
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/notes' element={<Notes/>}/>
-        <Route path='/nav' element={<Navbar/>}/>
-      </Routes>
+      <Displaynotes/>
     </div>
-  );
+  )
 }
-
-export default App;
