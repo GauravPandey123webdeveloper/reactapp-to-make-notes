@@ -19,6 +19,7 @@ const NoteApp = () => {
         }
     }, []);
 
+    
     const editor = useRef(null);
 
     const handleAddNote = () => {
@@ -156,12 +157,14 @@ const NoteApp = () => {
                                 "|",
                                 "font",
                                 "paragraph",
+                                'symbols',
                                 "|",
                                 "fontsize",
                                 "brush",
                                 '|',
                                 'ul',
                                 'ol',
+                                'lineHeight',
                                 "|",
                                 "outdent",
                                 "indent",
@@ -170,14 +173,26 @@ const NoteApp = () => {
                                 "eraser",
                                 "|",
                                 'image',
+                                'file',
+                                'video',
                                 'link',
                                 'table',
                                 "|",
                                 'selectall',
                                 'print',
+                                'find',
+                                'preview',
+                                'save',
+                                ''
+                                
                             ],
                             height: '82vh',
-                            width: '66vw'
+                            width: '66vw',
+                            uploader: { insertImageAsBase64URI: true },
+                            readonly: false,
+                            toolbarAdaptive: false,
+                            
+                            
                         }}
                     />
                 </div>

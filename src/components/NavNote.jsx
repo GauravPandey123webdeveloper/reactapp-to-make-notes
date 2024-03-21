@@ -179,12 +179,14 @@ const NoteApp = () => {
                                 "|",
                                 "font",
                                 "paragraph",
+                                'symbols',
                                 "|",
                                 "fontsize",
                                 "brush",
                                 '|',
                                 'ul',
                                 'ol',
+                                'lineHeight',
                                 "|",
                                 "outdent",
                                 "indent",
@@ -193,14 +195,25 @@ const NoteApp = () => {
                                 "eraser",
                                 "|",
                                 'image',
+                                'file',
+                                'video',
                                 'link',
                                 'table',
                                 "|",
                                 'selectall',
                                 'print',
+                                'find',
+                                'preview',
+                                'save',
+                                ''
+                                
                             ],
                             height: '82vh',
-                            width: '78vw'
+                            width: '74vw',
+                            uploader: { insertImageAsBase64URI: true },
+                            
+                            readonly: false,
+                            toolbarAdaptive: true,
                         }}
                     />
                 </div>
