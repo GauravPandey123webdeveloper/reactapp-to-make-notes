@@ -9,7 +9,6 @@ const NoteApp = () => {
     const [editorContent, setEditorContent] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
     const [showNewNoteButton, setShowNewNoteButton] = useState(true);
-
     useEffect(() => {
         const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
         setNotes(savedNotes);
@@ -199,8 +198,9 @@ const NoteApp = () => {
                                 'find',
                                 'preview',
                                 'save',
-                                ''
+                                
                             ],
+                            background:'transparent',
                             style: {
                                 padding: "20px",
                             },
@@ -210,9 +210,11 @@ const NoteApp = () => {
                             readonly: false,
                             toolbarAdaptive: false,
                             defaultOptions: {
-                                textAlign: 'left'
+                                textAlign: 'initial'
                             },
-                        }}
+                            align:'left'
+                        }
+                    }
                     />
                 </div>
             </div>

@@ -363,6 +363,9 @@ ul {
         transition: 0.2s;
         
     }
+    .editor-box{
+        text-align: initial;
+    }
 
     .lists{
         scroll-behavior: smooth;
@@ -424,6 +427,9 @@ ul {
         display: none;
     }
 
+    .editor-box{
+        text-align: initial;
+    }
     .notesList li{
         border: 1px solid rgba(213, 213, 213, 0.503);
         margin: 15px 10px;
