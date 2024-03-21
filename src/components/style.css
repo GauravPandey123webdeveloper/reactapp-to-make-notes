@@ -283,6 +283,7 @@ ul {
     position: fixed;
     background: url("https://img.freepik.com/premium-photo/smart-mobile-phone-social-networks-connect-global-network-network-touch-screen-device-digital-links-data-information-online-internet-things_1417-25064.jpg?size=626&ext=jpg&ga=GA1.1.665338535.1710153915&semt=ais"), #000;
     background-position:left;
+    background-size: cover;
     margin-left: 10px;
     }
 
@@ -342,9 +343,9 @@ ul {
     .lists {
         display: block;
         justify-content: left;
-        height: 53vh;
+        height: 54vh;
         width: 250px;
-        margin-top: 10px;
+        margin-top: 15px;
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         color: white;
@@ -469,4 +470,11 @@ ul {
    
     .editor-box{
         text-align: initial;
+    }
+    @media only screen and (max-width: 1020px ) and (max-height: 848px){
+
+            .lists{
+                height: 48vh;
+            }
+        
     }
