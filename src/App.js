@@ -1,10 +1,10 @@
 import React from 'react'
-import MainNav from './Components/MainNav.jsx'
+import MainNav from './components/MainNav.jsx'
 import { Route, Routes } from 'react-router-dom'
-import Home from './Components/Home.jsx'
-import ShowSavedNotes from './Components/ShowSavedNotes.jsx'
-import SideView from './Components/SideView.jsx'
-import MainEditor from './Components/MainEditor.jsx'
+import Home from './components/Home.jsx'
+import ShowSavedNotes from './components/ShowSavedNotes.jsx'
+import SideView from './components/SideView.jsx'
+import MainEditor from './components/MainEditor.jsx'
 export default function App() {
   return (
     <div>

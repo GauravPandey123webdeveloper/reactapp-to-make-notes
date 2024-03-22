@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import DataFromLocal from "../Storage/DataFromLocal";
 import ReactToPrint from 'react-to-print';
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { useRecoilState } from "recoil";
 import { useRef } from "react";
 
 export default function ShowSavedNotes() {
