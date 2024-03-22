@@ -10,6 +10,7 @@ const NoteApp = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [showNewNoteButton, setShowNewNoteButton] = useState(true);
     const [activeNoteIndex, setActiveNoteIndex] = useState(null);
+    const downloadLinkRef = useRef(null);
     useEffect(() => {
         const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
         setNotes(savedNotes);
@@ -55,6 +56,20 @@ const NoteApp = () => {
             setSelectedNoteIndex(null);
         }
     };
+    const handleExport = (fileType) => {
+        const fileName = `${currentTitle}.${fileType}`;
+        const textContent = editorContent.replace(/<[^>]*>?/gm, '');
+        const blob = new Blob([textContent], { type: `text/${fileType}` });
+        const url = window.URL.createObjectURL(blob);
+        if (downloadLinkRef.current) {
+            downloadLinkRef.current.href = url;
+            downloadLinkRef.current.download = fileName;
+            downloadLinkRef.current.click();
+            window.URL.revokeObjectURL(url);
+        } else {
+            console.error('Download link ref is not available.');
+        }
+    };
     const handleSaveNote = () => {
         if (selectedNoteIndex !== null) {
             const updatedNotes = [...notes];
@@ -84,6 +99,7 @@ const NoteApp = () => {
 
     return (
         <div className="wrapper">
+            <a ref={downloadLinkRef} style={{ display: 'none' }} />
             <p className="smallscreen">Sorry, your screen is too small for this. Try a tablet or computer! <br /> If your device is big enough, make sure it is in landscape mode!</p>
             <div className={`notes `}>
                 <ul className='navbar' >
@@ -200,9 +216,15 @@ const NoteApp = () => {
                                 'find',
                                 'preview',
                                 'save',
-                                
+                                {
+                                    name: 'Txt',
+                                    icon: 'https://cdn-icons-png.flaticon.com/128/3721/3721901.png',
+                                    exec: () => handleExport('txt')
+                                }
+
+
                             ],
-                            background:'transparent',
+                            background: 'transparent',
                             style: {
                                 padding: "20px",
                             },
@@ -214,9 +236,9 @@ const NoteApp = () => {
                             defaultOptions: {
                                 textAlign: 'initial'
                             },
-                            align:'left'
+                            align: 'left'
                         }
-                    }
+                        }
                     />
                 </div>
             </div>
