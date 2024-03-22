@@ -8,6 +8,7 @@ const NoteApp = () => {
     const [selectedNoteIndex, setSelectedNoteIndex] = useState(null);
     const [editorContent, setEditorContent] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
     useEffect(() => {
         const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
@@ -18,7 +19,7 @@ const NoteApp = () => {
             setEditorContent(savedNote);
         }
     }, []);
-    
+
     const editor = useRef(null);
 
     const handleAddNote = () => {
@@ -40,7 +41,6 @@ const NoteApp = () => {
             console.log('Title or content is empty.'); // Log a message if title or content is empty
         }
     };
-
     const handleOpenNote = (index) => {
         const note = filteredNotes[index]; // Get the note from the filteredNotes array
         if (note) {
@@ -53,7 +53,7 @@ const NoteApp = () => {
             setSelectedNoteIndex(null);
         }
     };
-    
+
     const handleSaveNote = () => {
         if (selectedNoteIndex !== null) {
             const updatedNotes = [...notes];
@@ -79,17 +79,37 @@ const NoteApp = () => {
         return note.title.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
+
     return (
         <div className="wrapper">
             <p className="smallscreen">Sorry, your screen is too small for this. Try a tablet or computer! <br/> If your device is big enough, make sure it is in landscape mode!</p>
-            <div className="notes">
-                <ul>
+            <div className={`notes ${isSidebarOpen ? '' : 'open'}`}>
+                
+                <i className={`fas ${isSidebarOpen ? 'fa-bars' : 'fa-times'} sidebar-toggler`} onClick={toggleSidebar}></i>
+                {!isSidebarOpen && <div className="notes-placeholder">
+                <ul className='sidemenu' id="sidemenu" style={{
+    position: 'fixed',
+    top: 30,
+    width: '280px',
+    height: '91%',
+    backdropFilter: 'blur(1000px)',
+    WebkitBackdropFilter: 'blur(1000px)',
+    backgroundColor: 'rgba(2, 2, 2, 0.323)',
+    transition: 'right 0.3s ease-in-out',
+    border: '1px solid rgba(0, 0, 0, 0.2)',
+    borderRadius: '8px'
+}}>
                     <li>
+                        
                         <div className='head-name'>
                             <ul className='btn'>
                                 <h2>Notes</h2>
                             </ul>
-                            <br />
+                            <hr />
+                            
                         </div>
                         <div className='head'>
                             <div className='input-field'>
@@ -101,7 +121,9 @@ const NoteApp = () => {
                                 />
                                 <button onClick={handleAddNote}>Save</button>
                             </div>
-                            <br />
+                            <hr />
+                            
+                            
                         </div>
                         <div className='head'>
                             <div className='input-field'>
@@ -114,7 +136,8 @@ const NoteApp = () => {
                                     />
                                 </div>
                             </div>
-                            <br />
+                            <hr />
+                            
                         </div>
                     </li>
                     <li>
@@ -128,11 +151,13 @@ const NoteApp = () => {
                                         )}
                                         <button onClick={() => handleDeleteNote(index)}>Delete</button>
                                     </li>
+                                    
                                 ))}
+                                
                             </ul>
                         </div>
                     </li>
-                </ul>
+                </ul> </div>}
             </div>
             <div className="notes-editor">
                 <div>
@@ -175,7 +200,7 @@ const NoteApp = () => {
                                 'print',
                             ],
                             height: '82vh',
-                            width: '66vw'
+                            width: '78vw'
                         }}
                     />
                 </div>
