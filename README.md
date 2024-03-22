@@ -42,22 +42,6 @@ This is a simple note-taking application built using React.js. It allows users t
 
 The project structure is as follows:
 
-react-notes-app/
-├── public/
-│   ├── index.html
-│   └── ...
-├── src/
-│   ├── components/
-│   │   ├── NoteForm.js
-│   │   ├── NoteList.js
-│   │   ├── SearchBar.js
-│   │   └── ...
-│   ├── App.js
-│   ├── index.js
-│   └── ...
-├── .gitignore
-├── package.json
-└── README.md
 
 ## Usage
 
