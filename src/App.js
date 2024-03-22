@@ -1,18 +1,13 @@
-import {Routes,Route} from 'react-router-dom'
-import Home from './components/Home';
-import Notes from './components/Notes';
-import Navbar from './components/Navbar';
+import React from 'react';
+import Display from './Components/Display';
 
-function App() {
+const App = () => {
   return (
     <div>
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/notes' element={<Notes/>}/>
-        <Route path='/nav' element={<Navbar/>}/>
-      </Routes>
+      <Display/>
     </div>
   );
-}
+};
+
 
 export default App;
