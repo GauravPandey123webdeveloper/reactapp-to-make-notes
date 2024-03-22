@@ -1,68 +1,73 @@
-# React Notes Application
+# Getting Started with Create React App
 
-This is a beginner-level React application designed to facilitate note-taking functionalities for users. Users can create, save, delete, and search notes easily through an intuitive user interface.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Functional Requirements
+## Available Scripts
 
-1. **Note Creation:**
-   - Users can create new notes by providing a title and content through a simple form or input fields.
+In the project directory, you can run:
 
-2. **Note Display:**
-   - A list of notes is displayed on the UI, visually represented as boxes containing titles and content.
+### `npm start`
 
-3. **Note Saving:**
-   - A "Save" button allows users to save their written notes, which become visible on the UI after saving.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-4. **Note Deletion:**
-   - Each note box includes a delete icon or button. Clicking it removes the corresponding note from the UI.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-5. **Note Searching:**
-   - Users can search for specific notes using a search box. The search functionality filters notes in real-time based on the entered query.
+### `npm test`
 
-## Technical Considerations
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-1. **React Components:**
-   - Create distinct React components for different sections, such as note form, note list, and search bar.
+### `npm run build`
 
-2. **State Management:**
-   - Utilize React state to manage dynamic content like notes and search queries.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-3. **Event Handling:**
-   - Implement event handlers for actions like saving and deleting notes.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-4. **Local Storage:**
-   - Consider using local storage to persist user notes across page refreshes.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-5. **Routing (Optional):**
-   - Advanced implementations may include routing to segregate views like home, notes, and search.
+### `npm run eject`
 
-## Submission Guidelines
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-1. **GitHub Repository:**
-   - Create a public GitHub repository for the project.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-2. **Readme File:**
-   - Include a detailed readme with instructions on running the project locally and an overview of its features.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-3. **Code Structure:**
-   - Organize code into clear and concise components, using comments for clarity.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-4. **Styling:**
-   - Apply consistent and organized styling, either through CSS or a styling library like styled-components.
+## Learn More
 
-5. **Deployment:**
-   - Deploy the application using platforms like GitHub Pages, Netlify, or Vercel.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Project Extras (Optional)
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-1. **Dark Mode:**
-   - Implement a dark mode feature for users preferring a darker color scheme.
+### Code Splitting
 
-2. **Markdown Support:**
-   - Allow users to write notes using Markdown for enhanced text formatting.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-3. **Categories/Tags:**
-   - Add the ability for users to categorize or tag their notes.
+### Analyzing the Bundle Size
 
-4. **Collaborative Notes (Advanced):**
-   - Implement a feature enabling multiple users to collaborate on the same note in real-time.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Notes-Maker
+# Notes-Maker
+# Notes-Maker
