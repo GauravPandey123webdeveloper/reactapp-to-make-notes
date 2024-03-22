@@ -1,4 +1,4 @@
-import NoteApps from './components/SideNote';
+import NoteApps from './components/SideNotes';
 import NoteApp from './components/NavNote';
 import './App.css'
 function App() {

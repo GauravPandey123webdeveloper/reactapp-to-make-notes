@@ -2,13 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import './style.css';
 import JoditEditor from "jodit-react";
 
-const NoteApp = () => {
+const SideNotes = () => {
     const [notes, setNotes] = useState([]);
     const [currentTitle, setCurrentTitle] = useState('');
     const [selectedNoteIndex, setSelectedNoteIndex] = useState(null);
     const [editorContent, setEditorContent] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [showNewNoteButton, setShowNewNoteButton] = useState(true);
     const [activeNoteIndex, setActiveNoteIndex] = useState(null);
     const downloadLinkRef = useRef(null);
@@ -44,8 +43,8 @@ const NoteApp = () => {
         }
     };
     const handleOpenNote = (index) => {
-        const note = filteredNotes[index];
         setActiveNoteIndex(index);
+        const note = filteredNotes[index]; // Get the note from the filteredNotes array
         if (note) {
             setCurrentTitle(note.title);
             setEditorContent(note.content);
@@ -56,7 +55,20 @@ const NoteApp = () => {
             setSelectedNoteIndex(null);
         }
     };
-
+    const handleExport = (fileType) => {
+        const fileName = `${currentTitle}.${fileType}`;
+        const textContent = editorContent.replace(/<[^>]*>?/gm, '');
+        const blob = new Blob([textContent], { type: `text/${fileType}` });
+        const url = window.URL.createObjectURL(blob);
+        if (downloadLinkRef.current) {
+            downloadLinkRef.current.href = url;
+            downloadLinkRef.current.download = fileName;
+            downloadLinkRef.current.click();
+            window.URL.revokeObjectURL(url);
+        } else {
+            console.error('Download link ref is not available.');
+        }
+    };
     const handleSaveNote = () => {
         if (selectedNoteIndex !== null) {
             const updatedNotes = [...notes];
@@ -82,130 +94,100 @@ const NoteApp = () => {
         return note.title.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
-    const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
-    };
-    const handleExport = (fileType) => {
-        const fileName = `${currentTitle}.${fileType}`;
-        
-        // Remove HTML tags from the editorContent
-        const textContent = editorContent.replace(/<[^>]*>?/gm, '');
-        
-        // Create a Blob with the text content
-        const blob = new Blob([textContent], { type: `text/${fileType}` });
-        const url = window.URL.createObjectURL(blob);
-    
-        // Check if the download link ref is available
-        if (downloadLinkRef.current) {
-            // Assign URL and filename to the download link
-            downloadLinkRef.current.href = url;
-            downloadLinkRef.current.download = fileName;
-            
-            // Trigger the click event on the download link
-            downloadLinkRef.current.click();
-            
-            // Revoke the object URL to free up memory
-            window.URL.revokeObjectURL(url);
-        } else {
-            console.error('Download link ref is not available.');
-        }
-    };
-    
+
+
     return (
         <div className="wrapper">
-            <a ref={downloadLinkRef} style={{ display: 'none' }} />
 
-            <i className={`fas ${isSidebarOpen ? 'fa-bars' : 'fa-times'} sidebar-toggler`} onClick={toggleSidebar}></i>
+            <a ref={downloadLinkRef} style={{ display: 'none' }} href='/' />
             <p className="smallscreen">Sorry, your screen is too small for this. Try a tablet or computer! <br /> If your device is big enough, make sure it is in landscape mode!</p>
-            <div className={`notes ${isSidebarOpen ? '' : 'open'}`}>
-                {!isSidebarOpen && <div className="notes-placeholder">
-                    <ul className='sidemenu' id="sidemenu" style={{
-                        position: 'fixed',
-                        top: 30,
-                        width: '280px',
-                        height: '91%',
-                        backdropFilter: 'blur(1000px)',
-                        WebkitBackdropFilter: 'blur(1000px)',
-                        backgroundColor: 'rgba(2, 2, 2, 0.323)',
-                        transition: 'right 0.3s ease-in-out',
-                        border: '1px solid rgba(0, 0, 0, 0.2)',
-                        borderRadius: '8px'
-                    }}>
-                        <li>
-
-                            <div className='head-name'>
-                                <ul className='btn'>
-                                    <h2>Notes</h2>
-                                </ul>
-
+            <div className={`notes `}>
+                <ul className='navbar' >
+                    <li>
+                        <div className='head-name'>
+                            <ul className='btn'>
+                                <h2>Notes</h2>
+                            </ul>
+                            <br />
+                        </div>
+                        <div className='head'>
+                            <div className='input-field'>
+                                <input
+                                    type="text"
+                                    value={currentTitle}
+                                    placeholder='Enter title here...'
+                                    onChange={(e) => setCurrentTitle(e.target.value)}
+                                />
+                                {showNewNoteButton ? (
+                                    <button onClick={() => {
+                                        setCurrentTitle('');
+                                        setEditorContent('');
+                                        setSelectedNoteIndex(null);
+                                        setShowNewNoteButton(false);
+                                    }}>New Note</button>
+                                ) : (<button onClick={() => {
+                                    handleAddNote();
+                                    setShowNewNoteButton(true); // Hide "New Note" button
+                                }}>Save</button>)}
+                                {/* <button onClick={handleAddNote}>Save</button>
+                                <button onClick={() => {
+                                    setCurrentTitle('');
+                                    setEditorContent('');
+                                    setSelectedNoteIndex(null);
+                                }}>New Note</button> */}
                             </div>
-                            <div className='head'>
-                                <div className='input-field'>
+                            <br />
+                        </div>
+                        <div className='head'>
+                            <div className='input-field'>
+                                <div>
                                     <input
                                         type="text"
-                                        value={currentTitle}
-                                        placeholder='Enter title here...'
-                                        onChange={(e) => setCurrentTitle(e.target.value)}
-                                    />{showNewNoteButton ? (
-                                        <button onClick={() => {
-                                            setCurrentTitle('');
-                                            setEditorContent('');
-                                            setSelectedNoteIndex(null);
-                                            setShowNewNoteButton(false);
-                                        }}>New Note</button>
-                                    ) : (<button onClick={() => {
-                                        handleAddNote();
-                                        setShowNewNoteButton(true); // Hide "New Note" button
-                                    }}>Save</button>)}
-                                    {/* <button onClick={handleAddNote}>Save</button> */}
+                                        value={searchQuery}
+                                        placeholder="Search Note..."
+                                        onChange={handleSearchQueryChange}
+                                    />
                                 </div>
-
                             </div>
-                            <div className='head'>
-                                <div className='input-field'>
-                                    <div>
-                                        <input
-                                            type="text"
-                                            value={searchQuery}
-                                            placeholder="Search Note..."
-                                            onChange={handleSearchQueryChange}
-                                        />
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </li>
-                        <li>
-                            <div className='lists'>
-                                <ul className='notesList'>
-                                    {filteredNotes.map((note, index) => (
-                                        <li key={index} onClick={() => handleOpenNote(index)} className={activeNoteIndex === index ? 'active' : ''}>
-                                            {note.title.split(' ')[0]}
-                                            {selectedNoteIndex === index ? (
-                                                <button onClick={handleSaveNote}>Update</button>
-                                            ) : (
-                                                <button onClick={() => handleDeleteNote(index)}>Delete</button>
-                                                
-                                            )}
-                                        </li>
-                                        
-                                    ))}
-                                </ul>
-                            </div>
-                        </li>
-                    </ul> </div>}
+                            <br />
+                        </div>
+                    </li>
+                    <li>
+                        <div className='lists'>
+                            <ul className='notesList'>
+                                {filteredNotes.map((note, index) => (
+                                    <li key={index} onClick={() => handleOpenNote(index)} className={activeNoteIndex === index ? 'active' : ''}>
+                                        {note.title.split(' ')[0]}
+                                        {selectedNoteIndex === index ? (
+                                            <button onClick={handleSaveNote}>Update</button>
+                                        ) : (
+                                            <button onClick={() => handleDeleteNote(index)}>Delete</button>
+                                        )}
+                                    </li>
+                                ))}
+                                {/* {filteredNotes.map((note, index) => (
+                                    <li key={index} onClick={() => handleOpenNote(index)} className={activeNoteIndex === index ? 'active' : ''}>
+                                        {note.title.split(' ')[0]}
+                                        {selectedNoteIndex === index ? (
+                                            <button onClick={handleSaveNote}>Update</button>
+                                        ) : (
+                                            <button onClick={() => handleDeleteNote(index)}>Delete</button>
+                                        )}
+                                    </li>
+                                ))} */}
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </div>
             <div className="notes-editor">
                 <div>
-                    
                     <JoditEditor
                         value={editorContent}
                         onChange={setEditorContent}
                         className="editor-box"
                         ref={editor}
                         config={{
-                            title: 'My Note Editor',
                             buttons: [
                                 'bold',
                                 'italic',
@@ -244,24 +226,27 @@ const NoteApp = () => {
                                 'find',
                                 'preview',
                                 'save',
-                                
                                 {
                                     name: 'Txt',
                                     icon: 'https://img.icons8.com/?size=100&id=i426cfMKcE3l&format=png',
                                     exec: () => handleExport('txt')
                                 }
                             ],
+                            background: 'transparent',
                             style: {
-                                paddingLeft: "20px",
+                                padding: "20px",
                             },
                             height: '82vh',
-                            width: '74vw',
+                            width: '66vw',
                             uploader: { insertImageAsBase64URI: true },
                             readonly: false,
-                            toolbarAdaptive: true,
+                            toolbarAdaptive: false,
+                            defaultOptions: {
+                                textAlign: 'initial'
+                            },
                             direction: 'ltr',
-                            
-                        }}
+                        }
+                        }
                     />
                 </div>
             </div>
@@ -269,4 +254,4 @@ const NoteApp = () => {
     );
 };
 
-export default NoteApp;
+export default SideNotes;
