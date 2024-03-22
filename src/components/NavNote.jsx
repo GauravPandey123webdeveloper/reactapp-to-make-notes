@@ -181,7 +181,7 @@ const NoteApp = () => {
                                 <ul className='notesList'>
                                     {filteredNotes.map((note, index) => (
                                         <li key={index} onClick={() => handleOpenNote(index)} className={activeNoteIndex === index ? 'active' : ''}>
-                                            {note.title}
+                                            {note.title.split(' ')[0]}
                                             {selectedNoteIndex === index ? (
                                                 <button onClick={handleSaveNote}>Update</button>
                                             ) : (
@@ -190,18 +190,13 @@ const NoteApp = () => {
                                             )}
                                         </li>
                                         
-
                                     ))}
-
                                 </ul>
                             </div>
                         </li>
                     </ul> </div>}
-
             </div>
-
             <div className="notes-editor">
-
                 <div>
                     
                     <JoditEditor
@@ -252,7 +247,7 @@ const NoteApp = () => {
                                 
                                 {
                                     name: 'Txt',
-                                    icon: 'https://cdn-icons-png.flaticon.com/128/3721/3721901.png',
+                                    icon: 'https://img.icons8.com/?size=100&id=i426cfMKcE3l&format=png',
                                     exec: () => handleExport('txt')
                                 }
                                 
