@@ -16,10 +16,9 @@ export default function SideView() {
   const handleDelete = (id) => {
     // Remove item from localStorage
     localStorage.removeItem(id);
-
     // Update Recoil state to remove the deleted item
     SetData((prevData) => ({
-      ...prevData,
+      ...prevData,state : "home",
       data: prevData.data.filter((key) => key !== id),
     }));
   };
