@@ -12,6 +12,7 @@ export default function Displaynotes() {
     }
   }, []);
 
+
   function handleChange(e) {
     let name = e.target.name;
     if (name === "tushu") {
@@ -49,7 +50,7 @@ export default function Displaynotes() {
         </div>
 
         <div className={styles.notes}>
-          <h1>Write Your Notes here:</h1>
+          <h1>Write Your Notes</h1>
           <textarea
             name="tushu"
             cols="85"
