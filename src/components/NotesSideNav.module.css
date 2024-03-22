@@ -1,0 +1,45 @@
+.NotesSideNav_MainContainer {
+    margin-top: 5vh;
+    margin-left: 1vh;
+    border: 1px solid white;
+    width: 20vw;
+    height: 80vh;
+  }
+  
+  .display {
+    padding-top: 0.2vh;
+    
+  }
+  .item {
+    height: 100px;
+    width: 300px;
+    margin-top: 1vh;
+    font-size: 25px;
+    margin-left: 10px;
+    padding: 0 5px;
+    background-color: rgb(64, 64, 67);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    border: 1px solid rgb(106, 187, 40);
+    border-radius: 8px;
+  
+  }
+  .del button {
+    border: none;
+    margin-left: 80px;
+  
+    background-color: red;
+    text-align: center;
+  }
+  .del img {
+    position: relative;
+    /* background-color: red; */
+    margin-right: 0vh;
+    border-radius: 10px;
+  }
+  
+  .NotesSideNav_MainContainer{
+      overflow: auto;
+  }
