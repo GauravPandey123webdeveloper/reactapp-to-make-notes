@@ -42,7 +42,26 @@ This is a simple note-taking application built using React.js. It allows users t
 
 The project structure is as follows:
 
+```bash
+react-notes-app/
+  ├── public/
+  │   ├── index.html
+  │   └── ...
+  ├── src/
+  │   ├── components
+  │   │   ├── SideBar.jsx
+  │   │   ├── style.css
+  │   │   ├── NavBar.jsx
+  │   │   └── ...
+  │   ├── App.css
+  │   ├── App.js
+  │   ├── index.js
+  │   └── ...
+  ├── .gitignore
+  ├── package.json
+  └── README.md
 
+```
 ## Usage
 
 1. Upon opening the app, you'll see a list of existing notes (if any).
@@ -76,3 +95,4 @@ If you'd like to contribute to this project, please follow these steps:
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
