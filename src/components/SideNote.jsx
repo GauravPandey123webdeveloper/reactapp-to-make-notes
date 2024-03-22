@@ -221,8 +221,6 @@ const NoteApp = () => {
                                     icon: 'https://cdn-icons-png.flaticon.com/128/3721/3721901.png',
                                     exec: () => handleExport('txt')
                                 }
-
-
                             ],
                             background: 'transparent',
                             style: {
@@ -236,7 +234,7 @@ const NoteApp = () => {
                             defaultOptions: {
                                 textAlign: 'initial'
                             },
-                            align: 'left'
+                            direction: 'ltr',
                         }
                         }
                     />

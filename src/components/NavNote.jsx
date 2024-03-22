@@ -255,7 +255,6 @@ const NoteApp = () => {
                                     icon: 'https://cdn-icons-png.flaticon.com/128/3721/3721901.png',
                                     exec: () => handleExport('txt')
                                 }
-                    
                                 
                             ],
                             style: {
