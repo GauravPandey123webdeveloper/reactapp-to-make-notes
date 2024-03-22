@@ -20,8 +20,7 @@ const NoteApp = () => {
             setEditorContent(savedNote);
         }
     }, []);
-
-
+    
     const editor = useRef(null);
 
     const handleAddNote = () => {
@@ -99,6 +98,7 @@ const NoteApp = () => {
 
     return (
         <div className="wrapper">
+            <a ref={downloadLinkRef} style={{ display: 'none' }} href='/'/>
             <p className="smallscreen">Sorry, your screen is too small for this. Try a tablet or computer! <br /> If your device is big enough, make sure it is in landscape mode!</p>
             <div className={`notes `}>
                 <ul className='navbar' >
@@ -107,6 +107,7 @@ const NoteApp = () => {
                             <ul className='btn'>
                                 <h2>Notes</h2>
                             </ul>
+                            
                             <br />
                         </div>
                         <div className='head'>
