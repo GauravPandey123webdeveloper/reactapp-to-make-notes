@@ -32,7 +32,7 @@ export default function MainNav() {
             <i class="fa-solid fa-file-circle-xmark"></i> Cancel
           </button>
         )}
-        {state.state === "read" && search.get("id") !== "newNote" && (
+        {state.state === "read" && state.state !== "home" && search.get("id") !== "newNote" && (
           <Link to={`/editor?id=${search.get("id")}`}>
             <button
               className="Nav_btn"

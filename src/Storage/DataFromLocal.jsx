@@ -3,7 +3,7 @@ let DataFromLocal = atom({
   key: `DataFromLocal`,
   default: {
     data: Object.keys(localStorage),
-    state: "read",
+    state: "home",
   },
 });
 export default DataFromLocal;
