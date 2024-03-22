@@ -1,0 +1,313 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+* {
+  box-sizing: border-box;
+}
+
+/* GLOBAL STYLES */
+
+body,
+.App {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 1vw; /* Responsive font size */
+  background: #333;
+  color: #eee;
+}
+
+button {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 1vw; /* Responsive font size */
+  font-family: inherit;
+  cursor: pointer;
+  color: #08c;
+}
+button:hover {
+  color: #04c;
+}
+
+.App {
+  display: flex;
+}
+
+/* SIDEBAR STYLES */
+
+.app-sidebar {
+  width: 30vw; /* Responsive width */
+  height: 100vh;
+  border-right: 1px solid #555;
+  background: #222;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2vh;
+  justify-content: center;
+  width: 100%;
+  border: 2px solid #333;
+}
+.app-sidebar-header h1 {
+  margin: 0;
+  color: #eee;
+}
+
+.app-sidebar-search {
+  padding: 2vh;
+}
+.app-sidebar-search input {
+  width: 100%;
+  padding: 1vh;
+  font-size: 1vw;
+  border: 1px solid #555;
+  background: #333;
+  color: #eee;
+}
+
+.app-sidebar-notes {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #555 #222;
+}
+.app-sidebar-notes::-webkit-scrollbar {
+  width: 1vw;
+}
+.app-sidebar-notes::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 0.5vw;
+}
+.app-sidebar-notes::-webkit-scrollbar-track {
+  background-color: #222;
+}
+
+.app-sidebar-note {
+  padding: 2.5vh;
+  cursor: pointer;
+  border-bottom: 1px solid #555;
+}
+.sidebar-note-title {
+  display: flex;
+  justify-content: space-between;
+}
+.app-sidebar-note button {
+  color: #f00;
+}
+.app-sidebar-note p {
+  margin: 1vh 0;
+  color: #ccc;
+}
+.app-sidebar-note small {
+  display: block;
+  color: #999;
+}
+
+.app-sidebar-note:hover {
+  background: #444;
+}
+.app-sidebar-note.active,
+.app-sidebar-note.active small {
+  background: #08c;
+  color: white;
+}
+.app-sidebar-footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 2vh;
+}
+
+.app-sidebar-footer button {
+  padding: 1vh 2vw;
+  font-size: 1.5vw;
+  background-color: #08c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.app-sidebar-footer button:hover {
+  background-color: #04c;
+  color: red;
+}
+/* NOTE EDITOR (MAIN) STYLES */
+
+.app-main {
+  width: 70vw; /* Responsive width */
+  height: 100vh;
+  background: #222;
+  overflow-y: auto;
+  padding: 2vw;
+}
+
+.app-main-note-edit {
+  padding: 2.5vh;
+}
+
+.app-main-note-edit input,
+textarea {
+  display: block;
+  border: 1px solid #555;
+  margin-bottom: 2vh;
+  width: calc(100% - 2vw);
+  padding: 1vh;
+  resize: none;
+  font-size: 1vw;
+  font-family: inherit;
+  background: #333;
+  color: #eee;
+}
+.app-main-note-edit input {
+  height: 5vh;
+  font-size: 2vw;
+  color: white;
+}
+.ql-editor {
+  padding: 1vw;
+  font-size: 3vh;
+}
+
+.no-active-note {
+  width: 70vw; /* Responsive width */
+  height: 100vh;
+  line-height: 100vh;
+  text-align: center;
+  font-size: 2vw;
+  color: #ccc;
+}
+
+/* SCROLLBAR STYLES */
+::-webkit-scrollbar {
+  width: 1vw;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 0.5vw;
+}
+::-webkit-scrollbar-track {
+  background-color: #222;
+}
+
+/* Button Styles */
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1vh;
+}
+
+.save-button,
+.update-button,
+.download-button {
+  padding: 1.3vh 1vw;
+  font-size: 2.5vh;
+  background-color: #08c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.save-button,
+.update-button {
+  margin-right: 1vw;
+}
+.save-button:hover,
+.update-button:hover,
+.download-button:hover {
+  background-color: #04c;
+  color: white;
+}
+
+.note-heading-input {
+  width: 100%;
+  padding: 1vh;
+  font-size: 1.5vw;
+  border: 1px solid #555;
+  background: #333;
+  color: #eee;
+  margin-bottom: 2vh;
+}
+
+
+/* Media Queries */
+
+/* For screens smaller than 768px (tablets) */
+@media (max-width: 768px) {
+  .App {
+    flex-direction: column;
+  }
+
+  .app-sidebar {
+    width: 100%;
+    height: 30vh; /* Adjust height as needed */
+    border-right: none;
+    border-bottom: 1px solid #555;
+  }
+
+  .app-main {
+    width: 100%;
+    height: 70vh; /* Adjust height as needed */
+    overflow-y: scroll;
+  }
+
+  .app-main-note-edit input,
+  .app-main-note-edit textarea {
+    font-size: 4vw;
+  }
+
+  .ql-editor {
+    font-size: 5vw;
+  }
+
+  .button-container {
+    justify-content: center;
+  }
+
+  .save-button,
+  .update-button,
+  .download-button {
+    font-size: 4vw;
+  }
+
+  .note-heading-input {
+    font-size: 3vw;
+  }
+}
+
+/* For screens smaller than 480px (phones) */
+@media (max-width: 480px) {
+  .app-sidebar {
+    height: 40vh; /* Adjust height as needed */
+  }
+
+  .app-main {
+    height: 60vh; /* Adjust height as needed */
+  }
+
+  .app-main-note-edit input,
+  .app-main-note-edit textarea {
+    font-size: 6vw;
+  }
+
+  .ql-editor {
+    font-size: 7vw;
+  }
+
+  .save-button,
+  .update-button,
+  .download-button {
+    font-size: 5vw;
+  }
+
+  .note-heading-input {
+    font-size: 4vw;
+  }
+}
