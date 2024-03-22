@@ -157,7 +157,7 @@ const NoteApp = () => {
                             <ul className='notesList'>
                                 {filteredNotes.map((note, index) => (
                                     <li key={index} onClick={() => handleOpenNote(index)} className={activeNoteIndex === index ? 'active' : ''}>
-                                        {note.title}
+                                       {note.title.split(' ')[0]}
                                         {selectedNoteIndex === index ? (
                                             <button onClick={handleSaveNote}>Update</button>
                                         ) : (
