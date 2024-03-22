@@ -93,10 +93,11 @@ react-notes-app/
 │   └── ...
 ├── src/
 │   ├── components/
-│   │   ├── NoteForm.js
-│   │   ├── NoteList.js
-│   │   ├── SearchBar.js
+│   │   ├── Main.jsx
+│   │   ├── react-quill-custom.css
+│   │   ├── SideBar.jsx
 │   │   └── ...
+│   ├── App.css
 │   ├── App.js
 │   ├── index.js
 │   └── ...
