@@ -6,6 +6,7 @@ function App() {
     <div>
       <div className='navNote'><NoteApp/></div>
       <div className='sideNote'><NoteApps/></div>
+      
     </div>
   );
 }

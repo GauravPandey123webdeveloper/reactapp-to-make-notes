@@ -8,7 +8,7 @@ const NoteApp = () => {
     const [selectedNoteIndex, setSelectedNoteIndex] = useState(null);
     const [editorContent, setEditorContent] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
-
+    const [showNewNoteButton, setShowNewNoteButton] = useState(true);
     useEffect(() => {
         const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
         setNotes(savedNotes);
@@ -19,12 +19,13 @@ const NoteApp = () => {
         }
     }, []);
 
+
     const editor = useRef(null);
 
     const handleAddNote = () => {
         console.log('Editor Content:', editor.current.value); // Log editor content to check if it's being received
         console.log('Current Title:', currentTitle); // Log current title to verify
-        
+
         if (currentTitle.trim() !== '' && editor.current.value.trim() !== '') {
             const newNote = { title: currentTitle, content: editor.current.value };
             console.log('New Note:', newNote); // Log the new note to check its content
@@ -52,7 +53,6 @@ const NoteApp = () => {
             setSelectedNoteIndex(null);
         }
     };
-
     const handleSaveNote = () => {
         if (selectedNoteIndex !== null) {
             const updatedNotes = [...notes];
@@ -78,11 +78,11 @@ const NoteApp = () => {
         return note.title.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
-    
+
 
     return (
         <div className="wrapper">
-            <p className="smallscreen">Sorry, your screen is too small for this. Try a tablet or computer! <br/> If your device is big enough, make sure it is in landscape mode!</p>
+            <p className="smallscreen">Sorry, your screen is too small for this. Try a tablet or computer! <br /> If your device is big enough, make sure it is in landscape mode!</p>
             <div className={`notes `}>
                 <ul className='navbar' >
                     <li>
@@ -100,7 +100,23 @@ const NoteApp = () => {
                                     placeholder='Enter title here...'
                                     onChange={(e) => setCurrentTitle(e.target.value)}
                                 />
-                                <button onClick={handleAddNote}>Save</button>
+                                {showNewNoteButton ? (
+                                    <button onClick={() => {
+                                        setCurrentTitle('');
+                                        setEditorContent('');
+                                        setSelectedNoteIndex(null);
+                                        setShowNewNoteButton(false);
+                                    }}>New Note</button>
+                                ) : (<button onClick={() => {
+                                    handleAddNote();
+                                    setShowNewNoteButton(true); // Hide "New Note" button
+                                }}>Save</button>)}
+                                {/* <button onClick={handleAddNote}>Save</button>
+                                <button onClick={() => {
+                                    setCurrentTitle('');
+                                    setEditorContent('');
+                                    setSelectedNoteIndex(null);
+                                }}>New Note</button> */}
                             </div>
                             <br />
                         </div>
@@ -124,17 +140,17 @@ const NoteApp = () => {
                                 {filteredNotes.map((note, index) => (
                                     <li key={index} onClick={() => handleOpenNote(index)}>
                                         {note.title}
-                                        {selectedNoteIndex !== null && (
+                                        {selectedNoteIndex === index ? (
                                             <button onClick={handleSaveNote}>Update</button>
+                                        ) : (
+                                            <button onClick={() => handleDeleteNote(index)}>Delete</button>
                                         )}
-                                        <button onClick={() => handleDeleteNote(index)}>Delete</button>
                                     </li>
                                 ))}
                             </ul>
                         </div>
                     </li>
                 </ul>
-                
             </div>
             <div className="notes-editor">
                 <div>
@@ -156,12 +172,14 @@ const NoteApp = () => {
                                 "|",
                                 "font",
                                 "paragraph",
+                                'symbols',
                                 "|",
                                 "fontsize",
                                 "brush",
                                 '|',
                                 'ul',
                                 'ol',
+                                'lineHeight',
                                 "|",
                                 "outdent",
                                 "indent",
@@ -170,15 +188,33 @@ const NoteApp = () => {
                                 "eraser",
                                 "|",
                                 'image',
+                                'file',
+                                'video',
                                 'link',
                                 'table',
                                 "|",
                                 'selectall',
                                 'print',
+                                'find',
+                                'preview',
+                                'save',
+                                
                             ],
+                            background:'transparent',
+                            style: {
+                                padding: "20px",
+                            },
                             height: '82vh',
-                            width: '66vw'
-                        }}
+                            width: '66vw',
+                            uploader: { insertImageAsBase64URI: true },
+                            readonly: false,
+                            toolbarAdaptive: false,
+                            defaultOptions: {
+                                textAlign: 'initial'
+                            },
+                            align:'left'
+                        }
+                    }
                     />
                 </div>
             </div>
