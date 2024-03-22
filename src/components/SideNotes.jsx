@@ -99,7 +99,7 @@ const SideNotes = () => {
     return (
         <div className="wrapper">
 
-            <a ref={downloadLinkRef} style={{ display: 'none' }} href='/'/>
+            <a ref={downloadLinkRef} style={{ display: 'none' }} href='/' />
             <p className="smallscreen">Sorry, your screen is too small for this. Try a tablet or computer! <br /> If your device is big enough, make sure it is in landscape mode!</p>
             <div className={`notes `}>
                 <ul className='navbar' >
@@ -155,16 +155,16 @@ const SideNotes = () => {
                     <li>
                         <div className='lists'>
                             <ul className='notesList'>
-                            {filteredNotes.map((note, index) => (
-    <li key={index} onClick={() => handleOpenNote(index)} className={activeNoteIndex === index ? 'active' : ''}>
-        {note.title.split(' ')[0]}
-        {selectedNoteIndex === index ? (
-            <button onClick={handleSaveNote}>Update</button>
-        ) : (
-            <button onClick={() => handleDeleteNote(index)}>Delete</button>
-        )}
-    </li>
-))}``
+                                {filteredNotes.map((note, index) => (
+                                    <li key={index} onClick={() => handleOpenNote(index)} className={activeNoteIndex === index ? 'active' : ''}>
+                                        {note.title.split(' ')[0]}
+                                        {selectedNoteIndex === index ? (
+                                            <button onClick={handleSaveNote}>Update</button>
+                                        ) : (
+                                            <button onClick={() => handleDeleteNote(index)}>Delete</button>
+                                        )}
+                                    </li>
+                                ))}
                                 {/* {filteredNotes.map((note, index) => (
                                     <li key={index} onClick={() => handleOpenNote(index)} className={activeNoteIndex === index ? 'active' : ''}>
                                         {note.title.split(' ')[0]}
