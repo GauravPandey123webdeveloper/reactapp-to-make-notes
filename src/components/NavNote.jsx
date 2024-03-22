@@ -10,6 +10,7 @@ const NoteApp = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [showNewNoteButton, setShowNewNoteButton] = useState(true);
+    const [activeNoteIndex, setActiveNoteIndex] = useState(null);
 
     useEffect(() => {
         const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
@@ -43,8 +44,10 @@ const NoteApp = () => {
         }
     };
     const handleOpenNote = (index) => {
-        const note = filteredNotes[index]; // Get the note from the filteredNotes array
+        const note = filteredNotes[index];
+        setActiveNoteIndex(index);
         if (note) {
+
             setCurrentTitle(note.title);
             setEditorContent(note.content);
             setSelectedNoteIndex(notes.indexOf(note)); // Update selectedNoteIndex with the index in the original notes array
@@ -151,7 +154,7 @@ const NoteApp = () => {
                             <div className='lists'>
                                 <ul className='notesList'>
                                     {filteredNotes.map((note, index) => (
-                                        <li key={index} onClick={() => handleOpenNote(index)}>
+                                        <li key={index} onClick={() => handleOpenNote(index)} className={activeNoteIndex === index ? 'active' : ''}>
                                             {note.title}
                                             {selectedNoteIndex === index ? (
                                                 <button onClick={handleSaveNote}>Update</button>
