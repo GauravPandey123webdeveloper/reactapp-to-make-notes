@@ -23,13 +23,13 @@ This is a simple note-taking application built using React.js. It allows users t
 1. Clone the repository to your local machine using the following command:
 
     ```bash
-    git clone https://github.com/your-username/your-repository.git
+    git clone https://github.com/07Akashh/reactapp-to-make-notes.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd your-repository
+    cd reactapp-to-make-notes
     ```
 
 3. Install the project dependencies:
