@@ -19,6 +19,7 @@ Glyph Notes is a simple note-taking application built with React, Recoil, and Ti
 
 ## Folder Structure
 
+```
 glyph-notes/
 │
 ├── public/
@@ -45,6 +46,7 @@ glyph-notes/
 ├── package.json
 ├── README.md
 └── ...
+```
 
 ## Components
 
