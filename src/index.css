@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: url('https://t4.ftcdn.net/jpg/02/17/89/41/360_F_217894165_H4jRalQ4eg9Kp8XUVGEa7XFDEPtTQ9PY.webp') no-repeat center center fixed;
+  background: url('https://t4.ftcdn.net/jpg/02/17/89/41/360_F_217894165_H4jRalQ4eg9Kp8XUVGEa7XFDEPtTQ9PY.webp') ;
   background-size: cover;
   font-family: Arial, sans-serif;
 }

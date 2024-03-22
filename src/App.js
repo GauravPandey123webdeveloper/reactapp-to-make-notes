@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import './index.css';
+import { jsPDF } from "jspdf";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -8,6 +9,7 @@ function App() {
   const [newNote, setNewNote] = useState('');
   const [editNoteId, setEditNoteId] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const doc = new jsPDF();
 
   useEffect(() => {
     const savedNotes = localStorage.getItem('notes');
@@ -95,7 +97,7 @@ function App() {
         </ul>
       </div>
       <div className="notes">
-        <h1>My Unique Note App</h1>
+        <h1> Note App</h1>
         <input
           type="text"
           placeholder="Enter note title..."
