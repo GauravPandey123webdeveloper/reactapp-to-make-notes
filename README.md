@@ -5,9 +5,10 @@ This is a simple note-taking application built using React.js. It allows users t
 
 1. [Features](#features)
 2. [Installation](#installation)
-3. [Usage](#usage)
-4. [Contributing](#contributing)
-5. [License](#license)
+3. [Project Structure](#project-structure)
+4. [Usage](#usage)
+5. [Contributing](#contributing)
+6. [License](#license)
  
 ## Features
 - Create new notes with titles and content.
@@ -37,6 +38,42 @@ This is a simple note-taking application built using React.js. It allows users t
     ```bash
     npm install
     ```
+## Project Structure
+
+The project structure is as follows:
+
+react-note-app/
+│
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+│
+├── src/
+│   ├── components/
+│   │   ├── NavNote.jsx
+│   │   ├── SideNote.jsx
+│   │   └── style.css
+│   │
+│   ├── assets/
+│   │   ├── images/
+│   │   │   └── logo.png
+│   │   └── ...
+│   │
+│   ├── styles/
+│   │   ├── index.css
+│   │   └── ...
+│   │
+│   ├── utils/
+│   │   ├── api.js
+│   │   └── helpers.js
+│   │
+│   ├── App.js
+│   └── index.js
+│
+├── README.md
+├── package.json
+└── ...
+
 
 ## Usage
 
