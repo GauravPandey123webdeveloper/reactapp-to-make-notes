@@ -4,7 +4,6 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import DataFromLocal from "../Storage/DataFromLocal";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import processed from "../Storage/Processing";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function SideView() {

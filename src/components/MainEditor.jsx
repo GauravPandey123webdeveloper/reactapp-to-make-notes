@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import React, { useState} from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import DataFromLocal from "../Storage/DataFromLocal";
 import {
   useEditor,
