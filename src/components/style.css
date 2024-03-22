@@ -296,6 +296,8 @@ ul {
     .fas{
         display: block;
         cursor: pointer;
+        margin-left: -10px;
+        margin-right: 0px;
     }
 
     .editor{
@@ -313,10 +315,8 @@ ul {
     }
     .notes{
         width: 10px;
-        margin-right: 20px;
+        margin-right: 0px;
         position: relative;
-        
-
     }
     .open{
         width: 10px;
@@ -396,6 +396,7 @@ ul {
             height: 7vh;
             border-radius: 8px;
             margin-bottom: 10px;
+            padding-bottom: 10px;
         }
         
         .lists {

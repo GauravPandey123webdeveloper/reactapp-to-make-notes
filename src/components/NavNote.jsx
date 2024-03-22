@@ -250,7 +250,6 @@ const NoteApp = () => {
                                     icon: 'https://img.icons8.com/?size=100&id=i426cfMKcE3l&format=png',
                                     exec: () => handleExport('txt')
                                 }
-                                
                             ],
                             style: {
                                 paddingLeft: "20px",

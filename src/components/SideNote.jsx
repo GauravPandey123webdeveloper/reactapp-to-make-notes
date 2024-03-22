@@ -107,7 +107,6 @@ const NoteApp = () => {
                             <ul className='btn'>
                                 <h2>Notes</h2>
                             </ul>
-                            
                             <br />
                         </div>
                         <div className='head'>

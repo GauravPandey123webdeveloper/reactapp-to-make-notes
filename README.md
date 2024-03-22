@@ -4,9 +4,12 @@ This is a simple note-taking application built using React.js. It allows users t
 
 ## Features
 - Create new notes with titles and content.
+- Fully Responsive Web Application you can work on Laptop ,Tablet or mobile phone also.
 - Edit existing notes with a rich text editor.
 - Delete notes when no longer needed.
 - Search functionality to filter notes based on title.
+  
+<img width="1440" alt="Screenshot 2024-03-22 at 11 37 16 AM" src="https://github.com/07Akashh/reactapp-to-make-notes/assets/114846909/67073bda-1232-4f8d-bd84-491326387d2e">
 
 ## Installation
 1. Clone the repository.
@@ -19,6 +22,10 @@ This is a simple note-taking application built using React.js. It allows users t
 - Click on a note title to open and edit the note content.
 - Use the search bar to filter notes based on title.
 - Click on the delete button to remove a note.
+
+  <img width="908" alt="Screenshot 2024-03-22 at 11 37 45 AM" src="https://github.com/07Akashh/reactapp-to-make-notes/assets/114846909/fa8b0550-93a1-4c7c-b37e-07edf58f1404">
+
+
 
 ## Technologies Used
 - React.js
