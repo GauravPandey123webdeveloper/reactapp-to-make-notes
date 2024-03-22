@@ -10,7 +10,8 @@ const NoteApp = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [showNewNoteButton, setShowNewNoteButton] = useState(true);
-
+    const [activeNoteIndex, setActiveNoteIndex] = useState(null);
+    const downloadLinkRef = useRef(null);
     useEffect(() => {
         const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
         setNotes(savedNotes);
@@ -43,7 +44,8 @@ const NoteApp = () => {
         }
     };
     const handleOpenNote = (index) => {
-        const note = filteredNotes[index]; // Get the note from the filteredNotes array
+        const note = filteredNotes[index];
+        setActiveNoteIndex(index);
         if (note) {
             setCurrentTitle(note.title);
             setEditorContent(note.content);
@@ -83,9 +85,36 @@ const NoteApp = () => {
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
-
+    const handleExport = (fileType) => {
+        const fileName = `${currentTitle}.${fileType}`;
+        
+        // Remove HTML tags from the editorContent
+        const textContent = editorContent.replace(/<[^>]*>?/gm, '');
+        
+        // Create a Blob with the text content
+        const blob = new Blob([textContent], { type: `text/${fileType}` });
+        const url = window.URL.createObjectURL(blob);
+    
+        // Check if the download link ref is available
+        if (downloadLinkRef.current) {
+            // Assign URL and filename to the download link
+            downloadLinkRef.current.href = url;
+            downloadLinkRef.current.download = fileName;
+            
+            // Trigger the click event on the download link
+            downloadLinkRef.current.click();
+            
+            // Revoke the object URL to free up memory
+            window.URL.revokeObjectURL(url);
+        } else {
+            console.error('Download link ref is not available.');
+        }
+    };
+    
     return (
         <div className="wrapper">
+            <a ref={downloadLinkRef} style={{ display: 'none' }} />
+
             <i className={`fas ${isSidebarOpen ? 'fa-bars' : 'fa-times'} sidebar-toggler`} onClick={toggleSidebar}></i>
             <p className="smallscreen">Sorry, your screen is too small for this. Try a tablet or computer! <br /> If your device is big enough, make sure it is in landscape mode!</p>
             <div className={`notes ${isSidebarOpen ? '' : 'open'}`}>
@@ -130,7 +159,7 @@ const NoteApp = () => {
                                     }}>Save</button>)}
                                     {/* <button onClick={handleAddNote}>Save</button> */}
                                 </div>
-                                
+
                             </div>
                             <div className='head'>
                                 <div className='input-field'>
@@ -143,7 +172,7 @@ const NoteApp = () => {
                                         />
                                     </div>
                                 </div>
-                            
+
 
                             </div>
                         </li>
@@ -151,33 +180,32 @@ const NoteApp = () => {
                             <div className='lists'>
                                 <ul className='notesList'>
                                     {filteredNotes.map((note, index) => (
-                                        <li key={index} onClick={() => handleOpenNote(index)}>
-                                            {note.title}
+                                        <li key={index} onClick={() => handleOpenNote(index)} className={activeNoteIndex === index ? 'active' : ''}>
+                                            {note.title.split(' ')[0]}
                                             {selectedNoteIndex === index ? (
                                                 <button onClick={handleSaveNote}>Update</button>
                                             ) : (
                                                 <button onClick={() => handleDeleteNote(index)}>Delete</button>
+                                                
                                             )}
                                         </li>
-
+                                        
                                     ))}
-
                                 </ul>
                             </div>
                         </li>
                     </ul> </div>}
-                    
             </div>
-            
             <div className="notes-editor">
-                
                 <div>
+                    
                     <JoditEditor
                         value={editorContent}
                         onChange={setEditorContent}
                         className="editor-box"
                         ref={editor}
                         config={{
+                            title: 'My Note Editor',
                             buttons: [
                                 'bold',
                                 'italic',
@@ -216,6 +244,12 @@ const NoteApp = () => {
                                 'find',
                                 'preview',
                                 'save',
+                                
+                                {
+                                    name: 'Txt',
+                                    icon: 'https://img.icons8.com/?size=100&id=i426cfMKcE3l&format=png',
+                                    exec: () => handleExport('txt')
+                                }
                             ],
                             style: {
                                 paddingLeft: "20px",
@@ -225,6 +259,8 @@ const NoteApp = () => {
                             uploader: { insertImageAsBase64URI: true },
                             readonly: false,
                             toolbarAdaptive: true,
+                            direction: 'ltr',
+                            
                         }}
                     />
                 </div>
