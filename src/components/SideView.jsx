@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import "./Main.css";
 import { useRecoilState, useRecoilValue } from "recoil";
 import DataFromLocal from "../Storage/DataFromLocal";
-import { Link, NavLink, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import processed from "../Storage/Processing";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function SideView() {
   let [data, SetData] = useRecoilState(DataFromLocal);
   let objects = useRecoilValue(processed);
   let [search, SetSearch] = useState("");
+  let nav = useNavigate();
   let [id, setId] = useSearchParams();
-  console.log(id.get("id"));
   const handleDelete = (id) => {
     // Remove item from localStorage
     localStorage.removeItem(id);
@@ -30,8 +33,11 @@ export default function SideView() {
   });
   let NotesList = filteresData.map((dataIn) => (
     <div key={dataIn.id}>
-      <NavLink
+      <Link
         to={`/ShowSaved?id=${dataIn.id}`}
+        onClick={() => {
+          SetData((prev) => ({ ...prev, state: "read" }));
+        }}
         className={id.get("id") === dataIn.id ? "activeNavLink" : "ShowedList"}
       >
         <div
@@ -46,10 +52,10 @@ export default function SideView() {
               id.get("id") === dataIn.id ? "Active_metaData" : "metaData"
             }
           >
-            Date : {dataIn.Date} | Time : {dataIn.Time}
+            Date : {dataIn.date} | Time : {dataIn.time}
           </span>
         </div>
-        <div >
+        <div>
           <button
             className="sidePanel_btn"
             onClick={() => handleDelete(dataIn.id)}
@@ -57,7 +63,7 @@ export default function SideView() {
             <i className="fa-solid fa-trash-can" /> Delete
           </button>
         </div>
-      </NavLink>
+      </Link>
     </div>
   ));
   return (
@@ -77,7 +83,11 @@ export default function SideView() {
         />
         <i className="fa-solid fa-magnifying-glass" id="search_icon" />
       </div>
-      <div className="notesList">{NotesList}</div>
+      <div className="notesList">
+        {NotesList.length === 0
+          ? <h1 className="empty">No Saved Notes Yet!</h1>
+          : NotesList}
+      </div>
     </div>
   );
 }
