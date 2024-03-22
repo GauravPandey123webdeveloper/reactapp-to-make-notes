@@ -1,0 +1,51 @@
+/* Custom styles for ReactQuill editor */
+.ql-toolbar.ql-snow {
+  border-radius: 5px;
+}
+
+.ql-toolbar.ql-snow .ql-formats button {
+  background-color: #ccc;
+  color: #2c8de2; /* Icon color */
+  margin: 0 4px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.ql-toolbar.ql-snow .ql-formats button:hover {
+  color: #007bff; /* Hover color */
+}
+
+.ql-toolbar.ql-snow .ql-formats button.ql-active {
+  color: #ccc; /* Active color */
+  background-color: #000000;
+}
+
+.ql-toolbar.ql-snow .ql-picker-options {
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.ql-toolbar.ql-snow .ql-picker-label {
+  color: #495057;
+  background-color: white;
+}
+
+.ql-container.ql-snow {
+  border: 1px solid #ccc;
+  max-width: 100%; /* Added max-width to make it responsive */
+}
+
+.ql-container.ql-snow .ql-editor {
+  min-height: 500px;
+  font-size: 16px;
+  padding: 12px;
+  color: #ffffff;
+  max-width: 100%; /* Added max-width to make it responsive */
+}
+
+@media (max-width: 768px) {
+  .ql-container.ql-snow .ql-editor {
+    min-height: 50vh;
+    font-size: 2vh;
+  }
+}
