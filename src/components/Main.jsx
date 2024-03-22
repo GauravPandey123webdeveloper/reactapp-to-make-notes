@@ -6,6 +6,7 @@ import "../App.css";
 import jsPDF from "jspdf";
 
 export default function Main({ activeNote, onUpdateNote }) {
+  // State to manage the note data
   const [noteData, setNoteData] = useState({
     title: activeNote ? activeNote.title : "",
     body: activeNote ? activeNote.body : "",
@@ -19,6 +20,7 @@ export default function Main({ activeNote, onUpdateNote }) {
     });
   }, [activeNote]);
 
+  // Function to handle changes in the editor content
   const handleChange = useCallback((content) => {
     setNoteData((prevNoteData) => ({
       ...prevNoteData,
@@ -26,6 +28,7 @@ export default function Main({ activeNote, onUpdateNote }) {
     }));
   }, []);
 
+  // Function to save the note
   const handleSave = () => {
     onUpdateNote({
       ...activeNote,
@@ -35,6 +38,7 @@ export default function Main({ activeNote, onUpdateNote }) {
     });
   };
 
+  // Function to update the note
   const handleUpdate = () => {
     onUpdateNote({
       ...activeNote,
@@ -46,11 +50,15 @@ export default function Main({ activeNote, onUpdateNote }) {
     editor.focus();
   };
 
+  // Function to handle PDF download
   const handleDownloadPDF = () => {
     const doc = new jsPDF();
-    const textWithoutTags = noteData.body.replace(/<[^>]*>/g, ''); // Remove HTML tags
+    // Remove HTML tags from note body for PDF
+    const textWithoutTags = noteData.body.replace(/<[^>]*>/g, '');
+    // Add title and body to PDF
     doc.text(noteData.title, 10, 10);
     doc.text(textWithoutTags, 10, 20);
+    // Save PDF with note title
     doc.save(`${noteData.title}.pdf`);
   };
   
@@ -72,6 +80,7 @@ export default function Main({ activeNote, onUpdateNote }) {
       />
 
       <div className="app-main-note-edit">
+        {/* Editor Component */}
         <ReactQuill
           theme="snow"
           value={noteData.body}
@@ -89,13 +98,17 @@ export default function Main({ activeNote, onUpdateNote }) {
             },
           }}
         />
+        {/* Button Container */}
         <div className="button-container">
+          {/* Save Button */}
           <button className="save-button" onClick={handleSave}>
             Save
           </button>
+          {/* Update Button */}
           <button className="update-button" onClick={handleUpdate}>
             Update
           </button>
+          {/* Download PDF Button */}
           <button className="download-button" onClick={handleDownloadPDF}>
             Download PDF
           </button>
