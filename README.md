@@ -42,6 +42,7 @@ This is a simple note-taking application built using React.js. It allows users t
 
 The project structure is as follows:
 
+
 react-note-app/
 │
 ├── public/
