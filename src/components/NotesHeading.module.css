@@ -1,0 +1,94 @@
+.notesLogo {
+  margin-top: 2vh;
+  margin-left: 4vh;
+}
+.logoText {
+  color: whitesmoke;
+  margin-left: 5vh;
+  font-size: 30px;
+}
+.logo {
+  display: flex;
+}
+.navBar {
+  height: 90px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  border-bottom: 0.01vh solid whitesmoke;
+  position: sticky;
+}
+.navBar i {
+  font-size: 40px;
+  color: wheat;
+  margin-top: 20px;
+
+  margin-right: 40px;
+}
+.searchBar {
+  width: 50vw;
+  height: 5vh;
+  margin-left: 2vh;
+  margin-top: 1vh;
+  background-color: white;
+  font-size: 25px;
+  border-radius: 12px;
+  position: relative;
+  display: inline-block;
+  border: 2px solid black;
+  padding-left: 1dvh;
+}
+.searchBar:hover {
+  background-color: rgb(255, 255, 255);
+}
+::placeholder {
+  color: rgb(64, 64, 67);
+  text-indent: 20px;
+  position: absolute;
+}
+
+.searchIcon {
+  position: relative;
+  margin-left: -86vh;
+  width: 45px;
+  height: 45px;
+  filter: brightness(0) invert(1);
+}
+.searchBar:focus::placeholder {
+  filter: brightness(0.4) hue-rotate(0deg);
+}
+.searchIcon:focus {
+  filter: brightness(0.4) hue-rotate(0deg);
+}
+.saveBtn {
+  padding: 5px 10px;
+  font-size: 30px;
+background-color: green;
+color: white;
+  border: 2px solid black;
+  border-radius: 8px;
+  margin-left: 2vh;
+  margin-top: 1.5vh;
+}
+
+.down{
+  padding: 5px 10px;
+  font-size: 30px;
+background-color: green;
+color: white;
+  border: 2px solid black;
+  border-radius: 8px;
+  margin-left: 2vh;
+  margin-top: 1.5vh;
+}
+
+.menuIcon {
+  color: whitesmoke;
+  margin-top: 2vh;
+}
+
+form label {
+  color: white;
+  font-size: 2rem;
+  margin-left: 4rem;
+}
