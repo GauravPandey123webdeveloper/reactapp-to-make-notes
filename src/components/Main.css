@@ -49,9 +49,9 @@
   border: 0.5px solid black;
 }
 #search_icon {
-  position: fixed;
-  left: 1.1vw;
-  top: 14%;
+  position: relative;
+  left: 0.9vw;
+  bottom: 53%;
   color: rgb(155, 155, 155);
 }
 /* Assuming you have FontAwesome icons imported properly */
